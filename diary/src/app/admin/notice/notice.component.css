@@ -1,0 +1,33 @@
+.top{
+    display: flex;
+    align-items: center;
+    background-color: rgba(224, 224, 224, 0.403);
+    padding: 4px 22px ;
+    border-radius: 9px ;
+    h1{
+        font-size: 26px;
+        font-weight: 900;
+        font-family: 'Times New Roman', Times, serif;
+        color: red;
+        margin-bottom: 0px;
+    }
+}
+#firstimg{
+    width: 60px;
+}
+form{
+    display: flex;
+    margin-top: 4rem;
+    justify-content: center;
+}
+.form{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    width: 40rem;
+    padding: 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+input{
+    width: 100%;
+}

@@ -1,0 +1,52 @@
+.comp{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2.5rem;
+    justify-content: center;
+    margin-top: 50px;
+
+
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+.shell{
+    padding: 2rem;
+    width: 20rem;
+    height: 10rem;
+    cursor: pointer;
+    border-radius: 12px;
+    box-shadow: rgba(252, 200, 200, 0.477) 0px 54px 55px, #f4efef 0px -12px 30px, rgb(238, 229, 229) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    h5{
+        font-size: 16px;
+        font-weight: 700
+    }
+}
+#a,#e{
+    background-color: rgb(255, 231, 253);
+}
+#b,#f{
+    background-color: rgb(158, 204, 239);
+}
+#c,#d{
+    background-color: rgb(232, 246, 162);
+}
+.top{
+    display: flex;
+    justify-content: space-between;
+    .s-image{
+        width: 80px;
+        opacity: 80%;
+    }
+}
+h1{
+    font-size: 25px;
+    font-weight:700 ;
+}
+.dropdown{
+    width: 100%;
+}
+.btn{
+    width: 100%;
+}

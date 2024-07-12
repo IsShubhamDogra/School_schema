@@ -1,0 +1,41 @@
+.head{
+    display: flex;
+    justify-content: end;
+}
+.container{
+    display: flex;
+    margin: auto;
+    padding: 20px;
+    gap: 12px;
+}
+form{
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 15px;
+    width: 100%;
+    flex-wrap: wrap-reverse;
+}
+.form{
+    display: flex;
+    flex-direction: column;   
+    label{
+        display: grid;
+    }
+}
+span{
+    font-size: 12px;
+    color: red;
+}
+img{
+    width: 18rem;
+    position: relative;
+}
+button{
+    width: fit-content;
+}
+h4{
+    font-size: 26px;
+    font-weight: 700;
+}

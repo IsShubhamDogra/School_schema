@@ -1,0 +1,35 @@
+<div class="head">
+    <mat-dialog-actions>
+        <button class="btn btn-danger" mat-button (click)="closeDialog()"><i class="bi bi-x"></i></button>
+    </mat-dialog-actions>
+</div>
+<mat-dialog-content>
+    <div class="container">
+        <img src="assets/loginbg.png">
+        <form [formGroup]="loginForm" >
+            <h4>Login Here</h4>
+            <div class="form">
+                <label>Email
+                    <input type="email" formControlName="email">
+                    <div *ngIf="loginForm.get('email')?.touched && loginForm.get('email')?.invalid" class="error">
+                        <span *ngIf="loginForm && loginForm.get('email')?.errors?.['required']">
+                            Required</span>
+                        <span *ngIf="loginForm && loginForm.get('email')?.errors?.['pattern']">not valid</span>
+                    </div>
+                </label>
+                <label>password
+                    <input type="password" formControlName="password">
+                    <div *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.invalid" class="error">
+                        <span *ngIf="loginForm && loginForm.get('password')?.errors?.['required']">password
+                            Required</span>
+                        <span *ngIf="loginForm && loginForm.get('password')?.errors?.['pattern']">
+                            Must Contain (A-z),atleat 1 Special Symbol,Number
+                        </span>
+                    </div>
+                </label>
+            </div>
+            <button class="btn btn-primary" (click)="openProjectB()" [disabled]="(loginForm.valid)?false:true">Login</button>
+        </form>
+    </div>
+
+</mat-dialog-content>

@@ -1,0 +1,52 @@
+p{
+    font-size: 22px;
+    font-weight: 600;
+    color: red;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+.comp{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2.5rem;
+    justify-content: center;
+    margin-top: 50px;
+}
+.shell{
+    display: flex;
+    width: 22rem;
+    height: 12rem;
+    cursor: pointer;
+    border-radius: 12px;
+    gap: 20px;
+    box-shadow: rgba(252, 200, 200, 0.477) 0px 54px 55px, #f4efef 0px -12px 30px, rgb(238, 229, 229) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    h5{
+        font-size: 22px;
+        font-weight: 700;
+        margin: auto;
+    }
+}
+.box{
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+#a,#c{
+    background-color: beige;
+}
+#b,#d{
+    background-color: rgb(233, 205, 255);
+}
+.cornor{
+    width: 50px;
+    height: 50px;
+    position: relative;
+}
+.s-image{
+    width: 80px;
+    margin: auto;
+    z-index: 1;
+}

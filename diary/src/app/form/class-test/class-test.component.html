@@ -1,0 +1,63 @@
+<form [formGroup]="ctform" (ngSubmit)="onSubmit()">
+    <div class="form-data">
+        <h1>Select class</h1>
+        <select formControlName="class" class="form-select" aria-label="Default select example" (change)="selectClass($event)">
+            <option value="1">First</option>
+            <option value="2">Second</option>
+            <option value="3">Third</option>
+            <option value="4">Fourth</option>
+            <option value="5">Fifth</option>
+            <option value="6">Sixth</option>
+            <option value="7">Seventh</option>
+            <option value="8">Eighth</option>
+            <option value="9">Ninth</option>
+            <option value="10">Tenth</option>
+            <option value="11">Eleventh</option>
+            <option value="12">Twelfth</option>
+        </select>
+        <div class="container mt-5">
+            <div class="roll">
+                <label for="roll-number">Roll-Number:
+                    <input type="text" id="roll-number" formControlName="rollNumber" class="form-control">
+                </label>
+            </div>
+            <div class="container mt-5">
+                <h1>Subjects and marks</h1>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Subject</th>
+                            <th>Total Marks</th>
+                            <th>Given Marks</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody formArrayName="subjects">
+                        <tr *ngFor="let row of rows.controls; let i = index" [formGroupName]="i">
+                            <td>
+                                <input type="text" class="form-control" formControlName="subject">
+                            </td>
+                            <td>
+                                <input type="number" class="form-control" formControlName="totalMarks">
+                            </td>
+                            <td>
+                                <input type="number" class="form-control" formControlName="givenMarks" (change)="calculateStatus(row)">
+                            </td>
+                            <td>
+                                <input type="text" class="form-control" formControlName="status" [value]="row.get('status')?.value" readonly>
+                            </td>
+                            <td>
+                                <button type="button" class="btn btn-danger" (click)="removeRow(i)">Remove</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button type="button" class="btn btn-primary" (click)="addRow()">Add New Row</button>
+            </div>
+        </div>
+    </div>
+    <div class="button">
+        <button type="submit" class="btn btn-success col-3">Submit</button>
+    </div>
+</form>

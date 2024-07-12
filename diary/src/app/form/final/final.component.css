@@ -1,0 +1,15 @@
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+#marks{
+   text-align: right;
+}
+.btn{
+    width: fit-content;
+}
+#submit{
+    display: flex;
+    align-self: center;
+}

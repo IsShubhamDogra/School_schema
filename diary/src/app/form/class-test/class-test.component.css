@@ -1,0 +1,43 @@
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+option{
+    cursor: pointer;
+}
+span{
+    padding: 12px;
+    font-size: 20px;
+    font-weight: 500;
+    width: 100%;
+    
+}
+.mt-3{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+.roll{
+    margin-top: 12px;
+    label{
+        font-size: 15px;
+        font-weight: 700;
+        input{
+            margin-top: 12px;
+            width: 100%;
+            padding: 6px;
+            border: none;
+            background-color: rgb(235, 236, 236);
+            border-bottom: 2px solid rgb(167, 145, 145);
+            border-radius: 6px;
+        }
+    }
+}
+.button{
+    display: flex;
+    justify-content: end;
+}
+button{
+    width: fit-content;
+}

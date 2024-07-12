@@ -1,0 +1,235 @@
+<div class="container">
+    <div class="top">
+        <img class="token" src="assets/id-card.png" alt="">
+        <span id="form-type">Admission Form</span>
+    </div>
+    <form [formGroup]="admissionForm">
+        <!-- name part -->
+        <div class="names">
+            <h1>Applicent Name:</h1>
+            <div class="fields">
+                <div class="form-group">
+                    <label>First Name:</label>
+                    <input id="Firstname" formControlName="afname" type="text" required class="form-control">
+                </div>
+                <div class="form-group">
+                    <label>Middle Name:</label>
+                    <input id="middlename" formControlName="amname" type="text" required class="form-control">
+                </div>
+                <div class="form-group">
+                    <label>Last Name:</label>
+                    <input id="Lastname" formControlName="alname" type="text" required class="form-control">
+                </div>
+            </div>
+        </div>
+        <div class="names">
+            <h1>Father Name:</h1>
+            <div class="fields">
+                <div class="form-group">
+                    <label>First Name:</label>
+                    <input id="Firstname" formControlName="ffname" type="text" required class="form-control">
+                </div>
+                <div class="form-group">
+                    <label>Middle Name:</label>
+                    <input id="middlename" formControlName="fmname" type="text" required class="form-control">
+                </div>
+                <div class="form-group">
+                    <label>Last Name:</label>
+                    <input id="Lastname" formControlName="flname" type="text" required class="form-control">
+                </div>
+            </div>
+        </div>
+        <div class="names">
+            <h1>Mother Name:</h1>
+            <div class="fields">
+                <div class="form-group">
+                    <label>First Name:</label>
+                    <input id="Firstname" formControlName="mfname" type="text" required class="form-control">
+                </div>
+                <div class="form-group">
+                    <label>Middle Name:</label>
+                    <input id="middlename" formControlName="mmname" type="text" required class="form-control">
+                </div>
+                <div class="form-group">
+                    <label>Last Name:</label>
+                    <input id="Lastname" formControlName="mlname" type="text" required class="form-control">
+                </div>
+            </div>
+        </div>
+        <!-- gender part -->
+        <div class="form-group">
+            <h1>Gender:</h1>
+            <div class="radiob">
+                <div class="form-check">
+                    <input name="gender" class="form-check-input" type="radio" formControlanme="gender" id="male"
+                        value="male">
+                    <label class="form-check-label" for="male">
+                        Male
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input name="gender" class="form-check-input" type="radio" formControlName="gender" id="female"
+                        value="female">
+                    <label class="form-check-label" for="female">
+                        Female
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input name="gender" class="form-check-input" type="radio" formControlName="gender" id="others"
+                        value="others">
+                    <label class="form-check-label" for="others">
+                        Others
+                    </label>
+                </div>
+            </div>
+        </div>
+        <!-- contact info -->
+        <h2>**Contact Information**</h2>
+        <div class="contact">
+            <h1>Personal contact:</h1>
+            <div class="cont-fields">
+                <div class="numbers">
+                    <div class="form-group">
+                        <label>Phone:</label>
+                        <input id="phone" formControlName="phone" type="text" required class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label>Alternate phone:</label>
+                        <input id="Aphone" formControlName="Aphone" type="text" required class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Email:</label>
+                    <input id="email" formControlName="email" type="email" required class="form-control">
+                </div>
+            </div>
+        </div>
+        <div class="address">
+            <h1>Permanent Address:</h1>
+            <div class="add">
+                <div class="form-group">
+                    <label>Nationality:</label>
+                    <select class="form-select" aria-label="Default select example">
+                        <option selected>Select Nationality</option>
+                        <option value="1">Indian</option>
+                        <option value="2">Non-Indian</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Address Line 1:</label>
+                    <input id="Aone" formControlName="Aone" type="text" required class="form-control">
+                </div>
+                <div class="form-group">
+                    <label>Address Line 2:</label>
+                    <input id="Atwo" formControlName="Atwo" type="text" required class="form-control">
+                </div>
+                <div class="form-group">
+                    <label>Address Line 3:</label>
+                    <input id="Athree" formControlName="Athree" type="text" required class="form-control">
+                </div>
+            </div>
+            <div class="form-group">
+                <label>State:</label>
+                <select class="form-select" aria-label="Default select example">
+                    <option selected>Select State</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>District:</label>
+                <select class="form-select" aria-label="Default select example">
+                    <option selected>Select District:</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>pin code:</label>
+                <input id="pcode" formControlName="pcode" type="text" required class="form-control">
+            </div>
+        </div>
+        <h2>**Class/Stream Selection**</h2>
+        <div class="stream">
+            <div class="form-group">
+                <label>Class:</label>
+                <select class="form-select" formControlName="class" aria-label="Default select example"
+                    (change)="selectClass($event)">
+                    <option selected>Select class in which you want admission</option>
+                    <option value="1">01</option>
+                    <option value="2">02</option>
+                    <option value="3">03</option>
+                    <option value="4">04</option>
+                    <option value="5">05</option>
+                    <option value="6">06</option>
+                    <option value="7">07</option>
+                    <option value="8">08</option>
+                    <option value="9">09</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                </select>
+            </div>
+            <div *ngIf="admissionForm.get('class')?.value === '11' || admissionForm.get('class')?.value === '12'">
+                <div class="form-data">
+                    <label>Select Stream</label>
+                    <select formControlName="stream" class="form-select" aria-label="Select Stream">
+                        <option value="Science">Science</option>
+                        <option value="Commerce">Commerce</option>
+                        <option value="Arts">Arts</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <h2>**Uploads**</h2>
+        <div class="uploads">
+            <div class="dis">
+                <div class="oper">
+                    <div class="mb-3">
+                        <label>Applicant Image:</label>
+                        <input id="image" class="form-control" name="selectedFile" type="file"
+                            (change)="onFileSelected($event)" accept="image/*">
+                    </div>
+                    <div>
+                        <button class="btn btn-dark" (click)="onCommit()">Commit</button>
+                    </div>
+                </div>
+                <div *ngIf="imageUrl">
+                    <img [src]="imageUrl" alt="Selected Image" style="width: 10rem; height: 10rem;">
+                </div>
+            </div>
+            <div class="dis">
+                <div class="oper">
+                    <div class="mb-3">
+                        <label>Applicant Sign:</label>
+                        <input id="image" class="form-control" name="selectedFile" type="file"
+                            (change)="onsignselected($event)" accept="image/*">
+                    </div>
+                    <div>
+                        <button class="btn btn-dark" (click)="onCommit1()">Commit</button>
+                    </div>
+                </div>
+                <div *ngIf="signUrl">
+                    <img [src]="signUrl" alt="Selected Image" style="width: 10rem; height: 10rem;">
+                </div>
+            </div>
+        </div>
+        <div class="dec">
+            <div class="decl">
+                <input type="checkbox" (change)="onCheckboxChange($event)" [value]="1">
+                <label>I am declaring that all the Information provided above is valid and up to the mark.</label>
+            </div>
+            <div class="decl">
+                <input type="checkbox" (change)="onCheckboxChange($event)" [value]="2">
+                <label>I have read all the term and conditions given.</label>
+            </div>
+            <div class="decl">
+                <input type="checkbox" (change)="onCheckboxChange($event)" [value]="3">
+                <label>Yes, I want to Move forward.</label>
+            </div>
+        </div>
+        <button id="post" class=" btn btn-primary" [disabled]="!areBothCheckboxesSelected" (click)="generateRandomNumber()">Submit</button>
+    </form>
+</div>

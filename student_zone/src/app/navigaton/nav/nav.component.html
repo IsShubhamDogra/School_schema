@@ -1,0 +1,20 @@
+<div class="nav">
+    <div class="logo">
+        <a routerLink="">
+            <img src="assets/school_logo.png">
+        </a>
+        <div class="info">
+            <h4>Viveka Foundations</h4>
+        <p>A School With A vision</p>
+        </div>
+    </div>
+    <div class="right">
+        <span (click)="openSignup()">SignUp</span>
+        <span (click)="openDialog()">Login</span>
+    </div>
+</div>
+<div class="body">
+    <router-outlet></router-outlet>
+</div>
+
+

@@ -1,0 +1,33 @@
+<div class="body">
+    <div class="side-nav">
+        <div class="list">
+            <div class="logo">
+                <img class="log" src="assets/logo.png">
+                <h6><em>We provide you the best information</em></h6>
+            </div>
+            <div class="links">
+                <a routerLink="/result" routerLinkActive="active-link"><img src="assets/results.png"> Results</a>
+                <a routerLink="/notice" routerLinkActive="active-link"><img src="assets/notice.png"> Notice</a>
+            </div>
+        </div>
+    </div>
+<div class="overview">
+    <div class="nav">
+        <div class="left">
+            <a routerLink="/" routerLinkActive="active-link">
+                <img src="assets/dashboard.png" width="30px" height="30px">
+                <span>Dashboard</span>
+            </a>
+            </div>
+        <div class="right">
+            <button class="btn btn-danger">Logout</button>
+        </div>
+    </div>
+    <h4><em>Hi everyone! This is your Dashboard    </em>
+    <img class="image" src="assets/notebook.png">
+    </h4>
+    <div class="container">
+        <router-outlet></router-outlet>
+    </div>
+</div>
+</div>

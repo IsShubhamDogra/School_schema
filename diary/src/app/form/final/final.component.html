@@ -1,0 +1,61 @@
+<form [formGroup]="finalForm" (ngSubmit)="finalResult()">
+  <div class="form-data">
+    <h1>Select Class</h1>
+    <select formControlName="class" class="form-select" aria-label="Default select example" (change)="selectClass($event)">
+      <option value="1">First</option>
+      <option value="2">Second</option>
+      <option value="3">Third</option>
+      <option value="4">Fourth</option>
+      <option value="5">Fifth</option>
+      <option value="6">Sixth</option>
+      <option value="7">Seventh</option>
+      <option value="8">Eighth</option>
+      <option value="9">Ninth</option>
+      <option value="10">Tenth</option>
+      <option value="11">Eleventh</option>
+      <option value="12">Twelfth</option>
+    </select>
+  </div>
+
+  <div *ngIf="finalForm.get('class')?.value === '11' || finalForm.get('class')?.value === '12'">
+    <div class="form-data">
+      <h1>Select Stream</h1>
+      <select formControlName="stream" class="form-select" aria-label="Select Stream">
+        <option value="Science">Science</option>
+        <option value="Commerce">Commerce</option>
+        <option value="Arts">Arts</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="input-group mb-3">
+    <span class="input-group-text" id="inputGroup-sizing-default">Range</span>
+    <input formControlName="range" type="number" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+  </div>
+
+  <button type="button" class="btn btn-primary" (click)="addTable()">Add Table</button>
+
+  <div *ngIf="rollNumbersFormArray.length > 0">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Roll Number</th>
+          <th *ngFor="let subject of finalForm.get('subjects')?.value"> {{ subject.subjectName }} </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let rollNumberGroup of rollNumbersFormArray.controls; let i = index">
+          <td>{{ rollNumberGroup.get('rollNumber')?.value }}</td>
+          <ng-container formArrayName="subjects">
+            <td *ngFor="let subjectGroup of rollNumberGroup.get('subjects')?.value; let j = index" [formGroupName]="j">
+              <input formControlName="marks" id="marks" type="text" class="form-control" placeholder="-">
+            </td>
+            <td><button class="btn btn-success" type="button" (click)="commitRow(i)">Commit</button></td>
+          </ng-container>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <button id="submit" class="btn btn-success" type="submit">Post</button>
+</form>
