@@ -82,6 +82,29 @@ span{
     font-size: 26px;
     font-weight: 600;
 }
+.sup{
+    background-color: white;
+    color: black;
+    border-radius: 4px;
+    font-size: 16px;
+    padding: 6px 12px;
+}
+.sup:hover{
+    background-color: rgba(219, 217, 217, 0.64);
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 6px 12px;
+}
+.right{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    gap: 5px;
+    padding: 4px 4px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    border-radius: 4px;
+}
 h4{
     gap: 12px;
     padding: 12px;

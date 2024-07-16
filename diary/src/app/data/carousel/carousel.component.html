@@ -1,0 +1,15 @@
+<form [formGroup]="carouselFrom" (ngSubmit)="OnSubmit()">
+    <div class="input-group mb-3">
+        <input type="file" class="form-control" id="inputGroupFile02" (change)="onFileChange($event)">
+    </div>
+    <button class="btn btn-primary">Post</button>
+</form>
+@if (images.length > 0) {<div>
+    <h2>Uploaded Images</h2>
+    @for (image of images; track $index) {<div>
+        <img [src]="image.image" />
+    </div>
+    <div>
+        <button class="btn btn-danger" (click)="deletecarousel(image.id)">Delete</button>
+    </div>}
+</div>}

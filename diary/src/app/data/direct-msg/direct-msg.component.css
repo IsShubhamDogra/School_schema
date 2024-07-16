@@ -1,0 +1,38 @@
+form{
+    display: grid;
+    gap: 1rem;
+}
+.btn-success{
+    width: fit-content;
+    align-self: center;
+    margin: auto;
+}
+ .txt{
+    font-size: 16px;
+    font-weight: 700;
+    text-decoration: underline;
+ }
+ .col-3{
+    padding: 12px;
+    margin: auto;
+ }
+ img{
+    width: 150px;
+    height: 150px;
+ }
+ textarea{
+    height: 16rem;
+ }
+ p{
+    overflow-x: auto;
+    width: 30rem;
+    height: 9rem;
+ }
+ p::-webkit-scrollbar{
+    overflow-x: hidden;
+ }
+ .container{
+    margin-top: 4rem;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    padding: 12px;
+ }

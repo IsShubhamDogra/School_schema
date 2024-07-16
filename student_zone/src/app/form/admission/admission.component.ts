@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
-import { FormBuilder, FormControl, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Stream } from 'stream';
 
 @Component({
@@ -10,14 +11,15 @@ import { Stream } from 'stream';
   templateUrl: './admission.component.html',
   styleUrl: './admission.component.css'
 })
-export class AdmissionComponent {
-  admissionForm: any;
+export class AdmissionComponent implements OnInit{
+  admissionForm!: FormGroup;
   selectedFile: File | null = null;
   imageUrl: string | ArrayBuffer | null = null;
   signUrl: string | ArrayBuffer | null = null;
   areBothCheckboxesSelected: boolean = false;
-  randomNumber: number | null = null;
-  constructor(private fb: FormBuilder) {
+  // randomNumber: number | null = null;
+  constructor(private fb: FormBuilder,private router:Router) {}
+  ngOnInit(): void {
     this.admissionForm = this.fb.group({
       afname: ['', Validators.required],
       alname: [''],
@@ -96,13 +98,21 @@ export class AdmissionComponent {
     const selectedCheckboxes = Array.from(checkboxes).filter((checkbox: any) => checkbox.checked);
     this.areBothCheckboxesSelected = selectedCheckboxes.length === 3;
   }
-  get formreset(){
-    return this.admissionForm.reset();
-  }
-  generateRandomNumber(): void {
-    console.log('Form:', this.admissionForm.value);
-    this.randomNumber = Math.floor(10000000 + Math.random() * 90000000);
-    alert(`Application Number: ${this.randomNumber}`);
-    this.formreset;
-  }
+  // get formreset(){
+  //   return this.admissionForm.reset();
+  // }
+  // // generateRandomNumber(): void {
+  //   console.log('Form:', this.admissionForm.value);
+  //   this.randomNumber = Math.floor(10000000 + Math.random() * 90000000);
+  //   alert(`Application Number: ${this.randomNumber}`);
+  //   this.formreset;
+  // }
+  onsubmit():void {
+    // if(this.admissionForm.valid){
+    //   console.log(this.admissionForm.value);
+      this.router.navigateByUrl('/application')
+    // }else{
+    //   console.log('invalid form');
+    // }
+    }
 }

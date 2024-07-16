@@ -1,23 +1,21 @@
-<div class="container">
-    <div class="top">
-      <img id="firstimg" src="assets/note.png" alt="">
-      <h1>ADD NOTICE HERE</h1>
-    </div>
-    <div class="body">
-      <form [formGroup]="noticeForm" (ngSubmit)="onSubmit()">
-        <div class="form">
-          <div id="input-group mb-3">
-            <label>Title</label>
-            <input class="form-control" formControlName="title" type="text">
-          </div>
-          <div class="input-group mb-3">
-            <input type="file" formControlName="Image" class="form-control" id="inputGroupFile02">
-          </div>
-          <div class="input-group">
-            <textarea class="form-control" formControlName="message" aria-label="With textarea" placeholder="Add message"></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary">Submit</button>
-        </div>
-      </form>
+<p>Notice-Board!</p>
+<div class="comp">
+  <div class="shell" id="a">
+    <div class="box">
+      <img class="s-image" src="assets/meeting.png">
+      <h5>PTM-Schedule</h5>
     </div>
   </div>
+  <div class="shell" id="b">
+    <div class="box">
+      <img class="s-image" src="assets/examTT.png">
+      <h5>Exam-Time-Table</h5>
+    </div>
+  </div>
+  <div class="shell" id="c">
+    <div class="box">
+      <img class="s-image" src="assets/TT.png">
+      <h5>Regular-Time-Table</h5>
+    </div>
+  </div>
+</div>

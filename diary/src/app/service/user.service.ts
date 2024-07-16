@@ -17,4 +17,7 @@ export class UserService {
   getUserCount(): Observable<{ count: number }> {
     return this.http.get<{ count: number }>(`${this.baseUrl}/user-count`);
   }
+  register(user: any): Observable<any> {
+    return this.http.post<any>(`${this.baseUrl}/register`, user);
+  }
 }

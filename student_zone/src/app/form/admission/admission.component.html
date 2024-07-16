@@ -3,22 +3,22 @@
         <img class="token" src="assets/id-card.png" alt="">
         <span id="form-type">Admission Form</span>
     </div>
-    <form [formGroup]="admissionForm">
+    <form [formGroup]="admissionForm" (ngSubmit)="onsubmit()">
         <!-- name part -->
         <div class="names">
             <h1>Applicent Name:</h1>
             <div class="fields">
                 <div class="form-group">
                     <label>First Name:</label>
-                    <input id="Firstname" formControlName="afname" type="text" required class="form-control">
+                    <input id="Firstname" formControlName="afname" type="text"  class="form-control">
                 </div>
                 <div class="form-group">
                     <label>Middle Name:</label>
-                    <input id="middlename" formControlName="amname" type="text" required class="form-control">
+                    <input id="middlename" formControlName="amname" type="text"  class="form-control">
                 </div>
                 <div class="form-group">
                     <label>Last Name:</label>
-                    <input id="Lastname" formControlName="alname" type="text" required class="form-control">
+                    <input id="Lastname" formControlName="alname" type="text"  class="form-control">
                 </div>
             </div>
         </div>
@@ -27,15 +27,15 @@
             <div class="fields">
                 <div class="form-group">
                     <label>First Name:</label>
-                    <input id="Firstname" formControlName="ffname" type="text" required class="form-control">
+                    <input id="Firstname" formControlName="ffname" type="text"  class="form-control">
                 </div>
                 <div class="form-group">
                     <label>Middle Name:</label>
-                    <input id="middlename" formControlName="fmname" type="text" required class="form-control">
+                    <input id="middlename" formControlName="fmname" type="text"  class="form-control">
                 </div>
                 <div class="form-group">
                     <label>Last Name:</label>
-                    <input id="Lastname" formControlName="flname" type="text" required class="form-control">
+                    <input id="Lastname" formControlName="flname" type="text"  class="form-control">
                 </div>
             </div>
         </div>
@@ -44,15 +44,15 @@
             <div class="fields">
                 <div class="form-group">
                     <label>First Name:</label>
-                    <input id="Firstname" formControlName="mfname" type="text" required class="form-control">
+                    <input id="Firstname" formControlName="mfname" type="text"  class="form-control">
                 </div>
                 <div class="form-group">
                     <label>Middle Name:</label>
-                    <input id="middlename" formControlName="mmname" type="text" required class="form-control">
+                    <input id="middlename" formControlName="mmname" type="text"  class="form-control">
                 </div>
                 <div class="form-group">
                     <label>Last Name:</label>
-                    <input id="Lastname" formControlName="mlname" type="text" required class="form-control">
+                    <input id="Lastname" formControlName="mlname" type="text"  class="form-control">
                 </div>
             </div>
         </div>
@@ -91,16 +91,16 @@
                 <div class="numbers">
                     <div class="form-group">
                         <label>Phone:</label>
-                        <input id="phone" formControlName="phone" type="text" required class="form-control">
+                        <input id="phone" formControlName="phone" type="text"class="form-control">
                     </div>
                     <div class="form-group">
                         <label>Alternate phone:</label>
-                        <input id="Aphone" formControlName="Aphone" type="text" required class="form-control">
+                        <input id="Aphone" formControlName="Aphone" type="text" class="form-control">
                     </div>
                 </div>
                 <div class="form-group">
                     <label>Email:</label>
-                    <input id="email" formControlName="email" type="email" required class="form-control">
+                    <input id="email" formControlName="email" type="email"class="form-control">
                 </div>
             </div>
         </div>
@@ -117,15 +117,15 @@
                 </div>
                 <div class="form-group">
                     <label>Address Line 1:</label>
-                    <input id="Aone" formControlName="Aone" type="text" required class="form-control">
+                    <input id="Aone" formControlName="Aone" type="text"class="form-control">
                 </div>
                 <div class="form-group">
                     <label>Address Line 2:</label>
-                    <input id="Atwo" formControlName="Atwo" type="text" required class="form-control">
+                    <input id="Atwo" formControlName="Atwo" type="text" class="form-control">
                 </div>
                 <div class="form-group">
                     <label>Address Line 3:</label>
-                    <input id="Athree" formControlName="Athree" type="text" required class="form-control">
+                    <input id="Athree" formControlName="Athree" type="text"class="form-control">
                 </div>
             </div>
             <div class="form-group">
@@ -148,7 +148,7 @@
             </div>
             <div class="form-group">
                 <label>pin code:</label>
-                <input id="pcode" formControlName="pcode" type="text" required class="form-control">
+                <input id="pcode" formControlName="pcode" type="text"class="form-control">
             </div>
         </div>
         <h2>**Class/Stream Selection**</h2>
@@ -183,6 +183,7 @@
                 </div>
             </div>
         </div>
+        <!-- uploads -->
         <h2>**Uploads**</h2>
         <div class="uploads">
             <div class="dis">
@@ -193,7 +194,7 @@
                             (change)="onFileSelected($event)" accept="image/*">
                     </div>
                     <div>
-                        <button class="btn btn-dark" (click)="onCommit()">Commit</button>
+                        <button type="button" class="btn btn-dark" (click)="onCommit()">Commit</button>
                     </div>
                 </div>
                 <div *ngIf="imageUrl">
@@ -208,7 +209,7 @@
                             (change)="onsignselected($event)" accept="image/*">
                     </div>
                     <div>
-                        <button class="btn btn-dark" (click)="onCommit1()">Commit</button>
+                        <button type="button" class="btn btn-dark" (click)="onCommit1()">Commit</button>
                     </div>
                 </div>
                 <div *ngIf="signUrl">
@@ -230,6 +231,7 @@
                 <label>Yes, I want to Move forward.</label>
             </div>
         </div>
-        <button id="post" class=" btn btn-primary" [disabled]="!areBothCheckboxesSelected" (click)="generateRandomNumber()">Submit</button>
+        <button id="post" type="submit" class=" btn btn-primary">Submit</button>
+        <!-- [disabled]="!areBothCheckboxesSelected" -->
     </form>
 </div>

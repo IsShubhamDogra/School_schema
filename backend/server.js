@@ -32,22 +32,6 @@ db.connect((err) => {
   console.log('Connected to MySQL Database.');
 });
 
-// Configure Multer for file uploads
-const storage = multer.diskStorage({
-  destination: (_req, _file, cb) => {
-    cb(null, 'uploads/'); // Destination folder for uploaded files
-  },
-  filename: (_req, file, cb) => {
-    // Custom filename: fieldname-<timestamp>.<file-extension>
-    cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
-  }
-});
-
-// Multer upload configuration with no limits
-const upload = multer({
-  storage: storage
-}).single('image'); // Assuming 'image' is the field name from the form
-
 // Body parser middleware for handling JSON and form data
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));

@@ -16,8 +16,8 @@ a{
 }
 .shell{
     display: flex;
-    width: 22rem;
-    height: 12rem;
+    width: 20rem;
+    height: 10rem;
     cursor: pointer;
     border-radius: 12px;
     gap: 20px;

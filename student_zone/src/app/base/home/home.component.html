@@ -5,10 +5,8 @@
             <div class="dropdown">
                 <li id="nav_count" class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">About US</li>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Principal message</a></li>
                     <li><a class="dropdown-item" href="#">Director message</a></li>
-                    <li><a class="dropdown-item" href="#">Legal Documnets</a></li>
-                    <li><a class="dropdown-item" href="#">Staff Thoughts</a></li>
+                    <li><a class="dropdown-item" href="#">Principal message</a></li>
                 </ul>
             </div>
             <div class="dropdown">
@@ -20,6 +18,10 @@
                     <li><a class="dropdown-item" href="#">Fee Structure</a></li>
                     <li><a class="dropdown-item" href="#">Session Details</a></li>
                 </ul>
+            </div>
+            <div class="dropdown">
+                <li id="nav_count" class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Faculties
+                </li>
             </div>
             <div class="dropdown">
                 <li id="nav_count" class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Admissions
@@ -61,5 +63,43 @@
                 </ul>
             </div>
         </ul>
+    </div>
+    <div class="part-2">
+        <div class="slider-cors-div">
+            <div class="cors-head">
+                <h1>Showcase</h1>
+            </div>
+            <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                  <div *ngFor="let image of images1; let i = index" [class.active]="i === 0" class="carousel-item">
+                    <img class="cors" [src]="image.image" alt="Image">
+                  </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+              </div>
+        </div>     
+        <div class="message-box">
+            <h1>Director Message</h1>
+        <div class="message">
+           @if (images.length > 0) { <div>
+              @for (image of images; track $index) {  <div>
+                    <img [src]="image.image" alt="{{ image.name }}" width="300">
+                    <h3>{{ image.name }}</h3>
+                    <p>{{ image.message }}</p>
+                </div>}
+                <button class="btn btn-light">Read more</button>
+            </div>}
+            <div *ngIf="images.length === 0">
+                <p>No images found.</p>
+            </div> 
+        </div>
+    </div>
     </div>
 </div>

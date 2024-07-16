@@ -3,7 +3,6 @@ import { Router } from 'express';
 import { LoginComponent } from '../../form/login/login.component';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { MatDialog, MatDialogContent } from '@angular/material/dialog';
-import { SignUpComponent } from '../../form/sign-up/sign-up.component';
 import { HomeComponent } from '../../base/home/home.component';
 
 @Component({
@@ -15,11 +14,6 @@ import { HomeComponent } from '../../base/home/home.component';
 })
 export class NavComponent {
   constructor (private dialog:MatDialog){}
-  openSignup() {
-    this.dialog.open(SignUpComponent, {
-      width: '40rem',
-    });
-    }
 openDialog() {
   this.dialog.open(LoginComponent, {
     width: '45rem',

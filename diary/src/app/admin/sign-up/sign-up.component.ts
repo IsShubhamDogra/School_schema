@@ -1,9 +1,8 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogActions, MatDialogContent, MatDialogRef } from '@angular/material/dialog';
-import { RegisterService } from '../../service/register.service';
 import { CommonModule } from '@angular/common';
-import { HttpClient } from '@angular/common/http';
+import { UserService } from '../../service/user.service';
 
 @Component({
   selector: 'app-sign-up',
@@ -16,7 +15,7 @@ export class SignUpComponent implements OnInit {
 
   registerForm! : FormGroup ;
   constructor(public dialogRef: MatDialogRef<SignUpComponent>, @Inject(MAT_DIALOG_DATA) public data: any,private formBuilder:FormBuilder,
-  private registerService: RegisterService){}
+  private registerService: UserService){}
   ngOnInit(): void {
     this.registerForm = this.formBuilder.group({
       Fname:['',Validators.required],
@@ -30,8 +29,6 @@ export class SignUpComponent implements OnInit {
       validator: this.passwordMatchValidator
     });
   }
-
-  // Custom validator to check if password and confirm password match
   passwordMatchValidator(formGroup: FormGroup) {
     const passwordControl = formGroup.get('password');
     const confirmPasswordControl = formGroup.get('confirmPassword');

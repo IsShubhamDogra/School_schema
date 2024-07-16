@@ -10,6 +10,10 @@ import { FinalComponent } from './form/final/final.component';
 import { HolidaysComponent } from './data/holidays/holidays.component';
 import { TeacherInfoComponent } from './data/teacher-info/teacher-info.component';
 import { FeeStructureComponent } from './data/fee-structure/fee-structure.component';
+import { StudyMaterialComponent } from './admin/study-material/study-material.component';
+import { InstInfoComponent } from './admin/inst-info/inst-info.component';
+import { DirectMsgComponent } from './data/direct-msg/direct-msg.component';
+import { CarouselComponent } from './data/carousel/carousel.component';
 
 export const routes: Routes = [
     {path:'',component:InformationComponent},
@@ -21,5 +25,9 @@ export const routes: Routes = [
     {path:'final',component:FinalComponent},
     {path:'holidays',component:HolidaysComponent},
     {path:'teacher-record',component:TeacherInfoComponent},
-    {path:'fee-stuc',component:FeeStructureComponent}
+    {path:'fee-stuc',component:FeeStructureComponent},
+    {path:'qpaper',component:StudyMaterialComponent},
+    {path:'info-update',component:InstInfoComponent},
+    {path:'director-msg',component:DirectMsgComponent},
+    {path:'carousel',component:CarouselComponent}
 ];

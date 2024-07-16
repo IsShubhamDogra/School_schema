@@ -8,6 +8,8 @@
             <div class="links">
                 <a routerLink="/result" routerLinkActive="active-link"><img src="assets/results.png"> Results</a>
                 <a routerLink="/notice" routerLinkActive="active-link"><img src="assets/notice.png"> Notice</a>
+                <a routerLink="/qpaper" routerLinkActive="active-link"><img src="assets/paper.png">Study Material</a>
+                <a routerLink="/info-update" routerLinkActive="active-link"><img src="assets/update.png">Institue-Info-Update</a>
             </div>
         </div>
     </div>
@@ -20,7 +22,8 @@
             </a>
             </div>
         <div class="right">
-            <button class="btn btn-danger">Logout</button>
+            <span class="sup" (click)="openSignup()">New Admin</span>
+            <span class="sup" (click)="close()">logout</span>
         </div>
     </div>
     <h4><em>Hi everyone! This is your Dashboard    </em>
