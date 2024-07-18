@@ -10,7 +10,7 @@
 }
 
 @media (max-width:648px) {
-    .container {
+    .container1 {
         margin-top: 7rem;
     }
 }
@@ -120,6 +120,7 @@ h1{
     display: grid;
     width: 700px;
     gap: 1rem;
+    margin-top: 2rem;
 }
 .cors{
     width: 700px;
