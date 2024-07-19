@@ -27,7 +27,6 @@ export class HomeComponent implements OnInit {
       this.images = images;
     }, error => {
       console.error('Error fetching images:', error);
-      // Handle error as needed
     });
   }
   loadImage() {

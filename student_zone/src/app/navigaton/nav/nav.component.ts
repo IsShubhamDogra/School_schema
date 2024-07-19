@@ -4,11 +4,12 @@ import { LoginComponent } from '../../form/login/login.component';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { MatDialog, MatDialogContent } from '@angular/material/dialog';
 import { HomeComponent } from '../../base/home/home.component';
+import { DemonvComponent } from '../demonv/demonv.component';
 
 @Component({
   selector: 'app-nav',
   standalone: true,
-  imports: [RouterLink,RouterOutlet,MatDialogContent,HomeComponent],
+  imports: [RouterLink,RouterOutlet,MatDialogContent,HomeComponent,DemonvComponent],
   templateUrl: './nav.component.html',
   styleUrl: './nav.component.css'
 })

@@ -1,19 +1,17 @@
 .full{
     display: grid;
-    gap: 3rem;
 }
 .nav{
     display: flex;
-    position: fixed;
+    /* position: fixed; */
     top: 0;
     left: 0;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     padding: 3px 60px ;
     width: 100%;
     background-color: rgba(255, 255, 255, 0.853);
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-    z-index: 1000;
 }
 @media (max-width:648px){
     .nav{
@@ -28,6 +26,7 @@
 .logo{
     display: flex;
     gap: 20px;
+    padding: 20px;
     align-items: center;
 }
 .info{
@@ -75,7 +74,6 @@ span:hover{
     padding: 6px 12px;
 }
 .body{
-    margin-top: 60px;
     padding: 12px;
 }
 .social-links{
@@ -90,7 +88,9 @@ img{
 footer {
     background-color: #333;
     color: #fff;
+    bottom: 0;
     padding: 20px 0;
+    margin-bottom: 0%;
 }
 
 .footer-content {
@@ -154,4 +154,8 @@ footer {
 }
 .copyright{
     padding: 12px;
+}
+.gap{
+    display: grid;
+    gap: 3rem;
 }

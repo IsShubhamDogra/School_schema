@@ -1,58 +1,58 @@
+<app-demonv></app-demonv>
 <div class="full">
     <div class="nav">
-        <div class="logo">
-            <a routerLink="">
+        <a routerLink="">
+            <div class="logo">
                 <img id="logo" src="assets/school_logo.png">
-            </a>
-            <div class="info">
-                <h4>Demo School Name</h4>
-                <p>A School With A vision</p>
+                <div class="info">
+                    <h4>Demo School Name</h4>
+                    <p>A School With A vision</p>
+                </div>
             </div>
-        </div>
-        <div class="right">
-            <span (click)="openDialog()">Admin-Login</span>
-        </div>
+        </a>
     </div>
-    <div class="body">
-        <router-outlet></router-outlet>
-    </div>
-    <div class="container">
-        <footer>
-            <div class="footer-content">
-                <div class="social-links">
-                    <a href="#">
-                        <div class="facebook">
-                            <img src="assets/facebook.png" alt="Facebook">
-                        </div>
-                    </a>
-                    <a href="#">
-                        <div class="insta">
-                            <img src="assets/instagram.png" alt="Instagram">
-                        </div>
-                    </a>
-                    <a href="#">
-                        <div class="snapchat">
-                            <img src="assets/snapchat.png" alt="Snapchat">
-                        </div>
-                    </a>
-                    <a href="#">
-                        <div class="x">
-                            <img src="assets/twitter.png" alt="Twitter">
-                        </div>
-                    </a>
+    <div class="gap">
+        <div class="body">
+            <router-outlet></router-outlet>
+        </div>
+        <div class="container">
+            <footer>
+                <div class="footer-content">
+                    <div class="social-links">
+                        <a href="#">
+                            <div class="facebook">
+                                <img src="assets/facebook.png" alt="Facebook">
+                            </div>
+                        </a>
+                        <a href="#">
+                            <div class="insta">
+                                <img src="assets/instagram.png" alt="Instagram">
+                            </div>
+                        </a>
+                        <a href="#">
+                            <div class="snapchat">
+                                <img src="assets/snapchat.png" alt="Snapchat">
+                            </div>
+                        </a>
+                        <a href="#">
+                            <div class="x">
+                                <img src="assets/twitter.png" alt="Twitter">
+                            </div>
+                        </a>
+                    </div>
+                    <div class="subscribe-section">
+                        <input type="email" placeholder="Enter your email" class="subscribe-input">
+                        <button class="subscribe-button">Subscribe</button>
+                    </div>
+                    <div class="footer-links">
+                        <a href="#">About Us</a>
+                        <a href="#">Contact</a>
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Terms of Service</a>
+                    </div>
+                    <div class="copyright">© 2024,Demo School, All Right Reserved</div>
                 </div>
-                <div class="subscribe-section">
-                    <input type="email" placeholder="Enter your email" class="subscribe-input">
-                    <button class="subscribe-button">Subscribe</button>
-                </div>
-                <div class="footer-links">
-                    <a href="#">About Us</a>
-                    <a href="#">Contact</a>
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Terms of Service</a>
-                </div>
-                <div class="copyright">© 2024,Demo School, All Right Reserved</div>
-            </div>
-        </footer>        
+            </footer>
+        </div>
     </div>
 </div>

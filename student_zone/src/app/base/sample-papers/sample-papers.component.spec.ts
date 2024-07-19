@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AfterSubmitComponent } from './after-submit.component';
+import { SamplePapersComponent } from './sample-papers.component';
 
-describe('AfterSubmitComponent', () => {
-  let component: AfterSubmitComponent;
-  let fixture: ComponentFixture<AfterSubmitComponent>;
+describe('SamplePapersComponent', () => {
+  let component: SamplePapersComponent;
+  let fixture: ComponentFixture<SamplePapersComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AfterSubmitComponent]
+      imports: [SamplePapersComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(AfterSubmitComponent);
+    fixture = TestBed.createComponent(SamplePapersComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
