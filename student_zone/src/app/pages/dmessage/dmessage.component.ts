@@ -1,19 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { NavComponent } from '../../navigaton/nav/nav.component';
-import { RouterLink } from '@angular/router';
-import{MatIconModule} from '@angular/material/icon'
 import { UploadsService } from '../../service/uploads.service';
 import { CommonModule } from '@angular/common';
-import { DemonvComponent } from '../../navigaton/demonv/demonv.component';
 
 @Component({
-  selector: 'app-home',
+  selector: 'app-dmessage',
   standalone: true,
-  imports: [RouterLink,MatIconModule,CommonModule,DemonvComponent],
-  templateUrl: './home.component.html',
-  styleUrl: './home.component.css'
+  imports: [CommonModule],
+  templateUrl: './dmessage.component.html',
+  styleUrl: './dmessage.component.css'
 })
-export class HomeComponent implements OnInit {
+export class DmessageComponent implements OnInit {
   images:any[]=[];
   images1:any[]=[];
   constructor(private message:UploadsService){}
@@ -38,5 +34,4 @@ export class HomeComponent implements OnInit {
       // Handle error as needed
     });
   }
-
 }

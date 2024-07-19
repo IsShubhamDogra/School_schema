@@ -1,0 +1,41 @@
+.nv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ff6600;
+    gap: 3rem;
+}
+ul{
+    list-style: none;
+    display: flex;
+    gap: 3rem;
+    margin: auto;
+}
+.rigth{
+    display: flex;
+    align-items: center;
+    padding: 4px;
+    gap: 10px;
+}
+.bi{
+    font-size: 20px;
+    font-weight: 900;
+    padding: 6px;
+
+}
+.bi:hover{
+    background-color: #ff8533;
+    cursor: pointer;
+    border-radius: 15px;
+}
+li{
+    padding: 6px;
+    font-weight: 500;
+    color: white;
+}
+li:hover{
+    background-color: #ff8533;
+    border-radius: 4px;
+    cursor: pointer;
+    color: rgb(2, 2, 147);
+}
