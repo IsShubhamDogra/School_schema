@@ -70,6 +70,7 @@
     flex-direction: column;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
     gap: 14px;
+    border-radius: 6px;
     width: 20rem;
     height: 30rem;
 .message {
@@ -108,6 +109,7 @@ p {
     display: flex;
     justify-content: center;
     width: 100%;
+    border-radius: 6px 6px 0 0;
     background-color: #ff6600;
     h1{
         font-size: 25px;
@@ -115,7 +117,7 @@ p {
         color: white;
     }
 }
-.container{
+.wrap{
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -152,7 +154,4 @@ p {
 }
 .bi{
     rotate: -30deg;
-}
-l1{
-    border-style: dashed;
 }

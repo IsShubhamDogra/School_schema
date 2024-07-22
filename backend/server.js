@@ -3,8 +3,8 @@ const mysql = require('mysql');
 const cors = require('cors');
 const multer = require('multer');
 const bodyParser = require('body-parser');
-const path = require('path');
-const bcrypt = require('bcrypt');
+// const ptmrouter = require('./ptm')
+
 const jwt = require('jsonwebtoken');
 
 const app = express();
@@ -15,6 +15,8 @@ app.use(cors({
 }));
 
 const port = 3000;
+// app.use('/',ptmrouter);
+
 
 // Configure MySQL connection
 const db = mysql.createConnection({

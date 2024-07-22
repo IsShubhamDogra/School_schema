@@ -14,6 +14,9 @@ import { StudyMaterialComponent } from './admin/study-material/study-material.co
 import { InstInfoComponent } from './admin/inst-info/inst-info.component';
 import { DirectMsgComponent } from './data/direct-msg/direct-msg.component';
 import { CarouselComponent } from './data/carousel/carousel.component';
+import { PNsgComponent } from './data/p-nsg/p-nsg.component';
+import { PtmComponent } from './data/ptm/ptm.component';
+import { RegannouncecompComponent } from './data/regannouncecomp/regannouncecomp.component';
 
 export const routes: Routes = [
     {path:'',component:InformationComponent},
@@ -29,5 +32,8 @@ export const routes: Routes = [
     {path:'qpaper',component:StudyMaterialComponent},
     {path:'info-update',component:InstInfoComponent},
     {path:'director-msg',component:DirectMsgComponent},
-    {path:'carousel',component:CarouselComponent}
+    {path:'carousel',component:CarouselComponent},
+    {path:'pmsg',component:PNsgComponent},
+    {path:'ptm',component:PtmComponent},
+    {path:'regannounce',component:RegannouncecompComponent}
 ];

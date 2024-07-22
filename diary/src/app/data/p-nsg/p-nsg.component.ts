@@ -1,16 +1,16 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
+import { FormGroup, FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { UploadsService } from '../../service/uploads.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-direct-msg',
+  selector: 'app-p-nsg',
   standalone: true,
-  imports: [ReactiveFormsModule,CommonModule,FormsModule],
-  templateUrl: './direct-msg.component.html',
-  styleUrl: './direct-msg.component.css'
+  imports: [ReactiveFormsModule,CommonModule],
+  templateUrl: './p-nsg.component.html',
+  styleUrl: './p-nsg.component.css'
 })
-export class DirectMsgComponent {
+export class PNsgComponent {
   uploadForm: FormGroup;
   images:any[]=[];
   
@@ -37,7 +37,7 @@ export class DirectMsgComponent {
       formData.append('image', this.uploadForm.get('image')?.value);
       console.log(this.uploadForm.value);
       this.fetchImages();
-      this.uploadservice.uploadImage(formData).subscribe(response => {
+      this.uploadservice.Pmsgupload(formData).subscribe(response => {
         console.log(response);
       });
     }
@@ -47,7 +47,7 @@ export class DirectMsgComponent {
     this.fetchImages();
   }
   fetchImages() {
-    this.uploadservice.getdmessage().subscribe(images => {
+    this.uploadservice.getpmsg().subscribe(images => {
       this.images = images;
     }, error => {
       console.error('Error fetching images:', error);
@@ -56,7 +56,7 @@ export class DirectMsgComponent {
 }
 deleteImage(id: number) {
   if (confirm('Are you sure you want to delete this image?')) {
-    this.uploadservice.deleteImage(id).subscribe(response => {
+    this.uploadservice.deletepmsg(id).subscribe(response => {
       console.log('Image deleted:', response);
       // Optionally, update the image list after deletion
       this.fetchImages();

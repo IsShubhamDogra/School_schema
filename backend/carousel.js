@@ -109,4 +109,43 @@ app.delete('/delete/:id',(req, res) => {
   });
 });
 
+//pdf upload for announcement
+
+app.post('/uploadpdf', (req, res) => {
+  const file = req.file;
+  const filePath = path.join(__dirname, 'carousel', file.filename);
+
+  fs.readFile(filePath, (err, fileData) => {
+    if (err) throw err;
+
+    const sql = 'INSERT INTO pdf_files (file_name, file_data, message) VALUES (?, ?, ?)';
+    db.query(sql, [file.originalname, fileData], (err, result) => {
+      if (err) throw err;
+      fs.unlink(filePath, err => {
+        if (err) throw err;
+        res.status(201).json({ message: 'File uploaded successfully', fileId: result.insertId });
+      });
+    });
+  });
+});
+
+app.get('/fetch-pdf/:id', (req, res) => {
+  const pdfId = req.params.id;
+
+  const sql = 'SELECT file_name, file_data FROM pdf_files WHERE id = ?';
+  db.query(sql, [pdfId], (err, result) => {
+    if (err) throw err;
+
+    if (result.length === 0) {
+      return res.status(404).json({ error: 'PDF not found' });
+    }
+
+    const pdf = result[0];
+    res.setHeader('Content-Type', 'application/pdf');
+    res.setHeader('Content-Disposition', `attachment; filename=${pdf.file_name}`);
+    res.send(pdf.file_data);
+  });
+});
+
+
 

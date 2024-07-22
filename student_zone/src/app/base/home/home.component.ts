@@ -5,11 +5,12 @@ import{MatIconModule} from '@angular/material/icon'
 import { UploadsService } from '../../service/uploads.service';
 import { CommonModule } from '@angular/common';
 import { DemonvComponent } from '../../navigaton/demonv/demonv.component';
+import { PmsgcomponentComponent } from '../pmsgcomponent/pmsgcomponent.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [RouterLink,MatIconModule,CommonModule,DemonvComponent],
+  imports: [RouterLink,MatIconModule,CommonModule,DemonvComponent,PmsgcomponentComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })

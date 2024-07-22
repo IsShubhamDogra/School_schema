@@ -29,4 +29,20 @@ export class UploadsService {
   deletecarousel(id: number): Observable<any> {
     return this.http.delete<any>(`${this.apiUrl}/delete/${id}`);
   }
+  Pmsgupload(data: FormData): Observable<any> {
+    return this.http.post<any>(`${this.baseUrl}/uploadpmsg`, data);
+  }
+  getpmsg(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.baseUrl}/pmsget`);
+  }
+  deletepmsg(id: number): Observable<any> {
+    return this.http.delete<any>(`${this.baseUrl}/deletepmsg/${id}`);
+  }
+  uploadPDF(formData: FormData): Observable<any> {
+    return this.http.post(`${this.apiUrl}/uploadpdf`, formData);
+  }
+
+  fetchPDF(pdfId: number): Observable<Blob> {
+    return this.http.get(`${this.apiUrl}/fetch-pdf/${pdfId}`, { responseType: 'blob' });
+  }
 }

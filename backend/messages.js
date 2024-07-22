@@ -53,7 +53,7 @@ const storage = multer.diskStorage({
 });
 
 const upload = multer({ storage: storage }).single('image'); // Ensure 'image' is the field name from the form
-
+//director msg
 app.post('/upload', (req, res) => {
   upload(req, res, function (err) {
     if (err instanceof multer.MulterError) {
@@ -83,9 +83,57 @@ app.post('/upload', (req, res) => {
   });
 });
 
+//principle msg
+app.post('/uploadpmsg', (req, res) => {
+  upload(req, res, function (err) {
+    if (err instanceof multer.MulterError) {
+      // A Multer error occurred when uploading.
+      return res.status(500).json({ error: err.message });
+    } else if (err) {
+      // An unknown error occurred when uploading.
+      return res.status(500).json({ error: err.message });
+    }
+
+    if (!req.file) {
+      return res.status(400).json({ error: 'No file uploaded' });
+    }
+
+    const name = req.body.name;
+    const message = req.body.message;
+    const image = req.file.filename; // Store filename instead of buffer
+
+    const sql = 'INSERT INTO pmsg (name, message, image) VALUES (?, ?, ?)';
+    db.query(sql, [name, message, image], (err, results) => {
+      if (err) {
+        console.error('Error inserting data:', err);
+        return res.status(500).json({ error: 'Error inserting data' });
+      }
+      res.json({ message: 'Image uploaded successfully', id: results.insertId });
+    });
+  });
+});
+
 // Fetch Images (example)
 app.get('/images', (req, res) => {
   const sql = 'SELECT id, name, message, image FROM uploads';
+  db.query(sql, (err, results) => {
+    if (err) {
+      console.error('Error fetching data:', err);
+      return res.status(500).json({ error: 'Error fetching data' });
+    }
+    const images = results.map(row => ({
+      id: row.id,
+      name: row.name,
+      message: row.message,
+      image: `http://localhost:${port}/uploads/${row.image}`
+    }));
+    res.json(images);
+  });
+});
+
+// Fetch p msg (example)
+app.get('/pmsget', (req, res) => {
+  const sql = 'SELECT id, name, message, image FROM pmsg';
   db.query(sql, (err, results) => {
     if (err) {
       console.error('Error fetching data:', err);
@@ -113,6 +161,19 @@ app.delete('/delete/:id', (req, res) => {
   const id = req.params.id;
 
   const sql = 'DELETE FROM uploads WHERE id = ?';
+  db.query(sql, [id], (err, result) => {
+    if (err) {
+      console.error('Error deleting data:', err);
+      return res.status(500).json({ error: 'Error deleting data' });
+    }
+    res.json({ message: 'Image deleted successfully' });
+  });
+});
+// delete p msg
+app.delete('/deletepmsg/:id', (req, res) => {
+  const id = req.params.id;
+
+  const sql = 'DELETE FROM pmsg WHERE id = ?';
   db.query(sql, [id], (err, result) => {
     if (err) {
       console.error('Error deleting data:', err);

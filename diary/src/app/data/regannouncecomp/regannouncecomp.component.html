@@ -1,0 +1,12 @@
+<div class="container">
+    <h1>Upload PDF</h1>
+    <form [formGroup]="activepdf" (submit)="uploadPDF($event)">
+      <input type="file" (change)="onFileSelected($event)" accept="application/pdf" required>
+      <textarea formControlName="text"></textarea>
+      <button type="submit">Upload PDF</button>
+    </form>
+  
+    <h1>Fetch PDF</h1>
+    <button (click)="fetchPDF()">Open PDF</button>
+  </div>
+  

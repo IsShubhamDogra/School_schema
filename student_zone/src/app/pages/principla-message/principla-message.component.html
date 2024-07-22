@@ -1,0 +1,12 @@
+
+<div class="container">
+    <div class="message">
+    @if (images.length > 0) { <div>
+       @for (image of images; track $index) {  <div>
+             <img class="img" [src]="image.image" alt="{{ image.name }}" width="300">
+             <h3>{{ image.name }}</h3>
+             <p class="director-message">{{ image.message }}</p>
+         </div>}
+     </div>}
+ </div>
+</div>
