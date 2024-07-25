@@ -6,17 +6,16 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class UploadsService {
-  private baseUrl = 'http://localhost:3001'; 
-  private apiUrl = 'http://localhost:3002';
+  private apiUrl = 'http://localhost:8000';
 
   constructor(public http: HttpClient) { }
   getdmessage(): Observable<any[]> {
-    return this.http.get<any[]>(`${this.baseUrl}/images`);
+    return this.http.get<any[]>(`${this.apiUrl}/dmsg`);
   }
   getImages(): Observable<any[]> {
     return this.http.get<any[]>(`${this.apiUrl}/images`);
   }
   pmsg(): Observable<any[]> {
-    return this.http.get<any[]>(`${this.baseUrl}/pmsget`);
+    return this.http.get<any[]>(`${this.apiUrl}/pmsget`);
   }
 }

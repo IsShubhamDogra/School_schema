@@ -15,14 +15,19 @@ import { RouterLink } from '@angular/router';
            @if (images.length > 0) { <div class="out">
               @for (image of images; track $index) {  <div class="in">
                     <img [src]="image.image" alt="{{ image.name }}" width="300">
+                    <div class="div2">
                     <h3>{{ image.name }}</h3>
+                    <a routerLink="/pmsg">
+                    <button class="btn btn-light">Read more</button></a>
+                    </div>
                 </div>}
-                <a routerLink="/pmsg">
-                <button class="btn btn-light">Read more</button></a>
             </div>}</div>
    </div>
   `,
   styles: `
+  .div2{
+    display:grid;
+  }
   .msg-box{
     margin-top:12px;
     width:fit-content;
@@ -31,6 +36,11 @@ import { RouterLink } from '@angular/router';
   }
   .message{
     padding:12px;
+  }
+  a{
+  display:flex;
+  text-decoration:none;
+  flex-direction: row-reverse;
   }
   .out{
     display:flex;

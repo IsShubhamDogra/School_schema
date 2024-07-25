@@ -1,0 +1,13 @@
+<mat-tab-group>
+    <mat-tab label="Announcement">
+        <mat-list>
+            @for (pdf of pdfs; track $index){
+                <mat-list-item><a [href]="getPdfUrl(pdf.id)" target="_blank">{{ pdf.text
+                }}</a></mat-list-item>
+                <mat-divider></mat-divider>
+              }
+          </mat-list>
+    </mat-tab>
+    <mat-tab label="Notice Board"> Content 2 </mat-tab>
+    <mat-tab label="Academic Events"> Content 3 </mat-tab>
+  </mat-tab-group>

@@ -155,3 +155,11 @@ p {
 .bi{
     rotate: -30deg;
 }
+.container{
+    display: flex;
+    width: 100%;
+   justify-content: space-between;
+    .op1{
+        width: 64%;
+    }
+}

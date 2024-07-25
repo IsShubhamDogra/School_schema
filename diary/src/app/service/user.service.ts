@@ -7,17 +7,17 @@ import { Observable } from 'rxjs';
 })
 export class UserService {
 
-  private baseUrl = 'http://localhost:3000'; // Replace with your server URL
+  private apiUrl = 'http://localhost:8000'; // Replace with your server URL
 
   constructor(private http: HttpClient) { }
 
   getUsers(): Observable<any[]> {
-    return this.http.get<any[]>(`${this.baseUrl}/users`);
+    return this.http.get<any[]>(`${this.apiUrl}/users`);
   }
   getUserCount(): Observable<{ count: number }> {
-    return this.http.get<{ count: number }>(`${this.baseUrl}/user-count`);
+    return this.http.get<{ count: number }>(`${this.apiUrl}/user-count`);
   }
   register(user: any): Observable<any> {
-    return this.http.post<any>(`${this.baseUrl}/register`, user);
+    return this.http.post<any>(`${this.apiUrl}/register`, user);
   }
 }

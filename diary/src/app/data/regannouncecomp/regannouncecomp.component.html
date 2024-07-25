@@ -1,12 +1,31 @@
 <div class="container">
-    <h1>Upload PDF</h1>
-    <form [formGroup]="activepdf" (submit)="uploadPDF($event)">
-      <input type="file" (change)="onFileSelected($event)" accept="application/pdf" required>
-      <textarea formControlName="text"></textarea>
-      <button type="submit">Upload PDF</button>
-    </form>
-  
-    <h1>Fetch PDF</h1>
-    <button (click)="fetchPDF()">Open PDF</button>
+  <h1>Upload PDF</h1>
+  <form [formGroup]="activepdf" (submit)="uploadPDF($event)">
+    <div class="input-group mb-3">
+      <input type="file" (change)="onFileSelected($event)" accept="application/pdf" class="form-control"
+        id="inputGroupFile02" required>
+    </div>
+    <div class="form-floating">
+      <textarea class="form-control" formControlName="text" placeholder="Leave a comment here"
+        id="floatingTextarea"></textarea>
+      <label for="floatingTextarea">Comments</label>
+    </div>
+    <button class="btn btn-primary" type="submit">Upload PDF</button>
+  </form>
+  <mat-divider></mat-divider>
+  <div class="output">
+    <h1>List of PDFs</h1>
+    <mat-list>
+      @for (pdf of pdfs; track $index){
+        <div class="pdfcount">
+          <mat-list-item><a [href]="getPdfUrl(pdf.id)" target="_blank">{{ pdf.text
+          }}</a></mat-list-item>
+          <div>
+            <button class="btn btn-danger" (click)="pdfDlt(pdf.id)">Delete</button>
+          </div>
+        </div>
+          <mat-divider></mat-divider>
+        }
+    </mat-list>
   </div>
-  
+</div>

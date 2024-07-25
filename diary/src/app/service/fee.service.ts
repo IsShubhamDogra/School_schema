@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class FeeService {
-  private apiUrl = 'http://localhost:3002'
+  private apiUrl = 'http://localhost:8000'
 
   constructor(private http:HttpClient) { }
   uploadfee(data: FormData): Observable<any> {

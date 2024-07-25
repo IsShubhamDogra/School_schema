@@ -6,11 +6,12 @@ import { UploadsService } from '../../service/uploads.service';
 import { CommonModule } from '@angular/common';
 import { DemonvComponent } from '../../navigaton/demonv/demonv.component';
 import { PmsgcomponentComponent } from '../pmsgcomponent/pmsgcomponent.component';
+import { InfoTabForanouncementsComponent } from '../../pages/info-tab-foranouncements/info-tab-foranouncements.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [RouterLink,MatIconModule,CommonModule,DemonvComponent,PmsgcomponentComponent],
+  imports: [RouterLink,MatIconModule,CommonModule,DemonvComponent,PmsgcomponentComponent,InfoTabForanouncementsComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })

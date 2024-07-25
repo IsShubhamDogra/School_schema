@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
@@ -6,19 +6,18 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class UploadsService {
-  private baseUrl = 'http://localhost:3001';
-  private apiUrl = 'http://localhost:3002'
+  private apiUrl = 'http://localhost:8000';
 
   constructor(private http: HttpClient) { }
 
   uploadImage(data: FormData): Observable<any> {
-    return this.http.post<any>(`${this.baseUrl}/upload`, data);
+    return this.http.post<any>(`${this.apiUrl}/upload`, data);
   }
   getdmessage(): Observable<any[]> {
-    return this.http.get<any[]>(`${this.baseUrl}/images`);
+    return this.http.get<any[]>(`${this.apiUrl}/dmsg`);
   }
   deleteImage(id: number): Observable<any> {
-    return this.http.delete<any>(`${this.baseUrl}/delete/${id}`);
+    return this.http.delete<any>(`${this.apiUrl}/delete/${id}`);
   }
   uploadCarousel(data:FormData):Observable<any>{
     return this.http.post<any>(`${this.apiUrl}/uploadcarousel`,data);
@@ -30,19 +29,12 @@ export class UploadsService {
     return this.http.delete<any>(`${this.apiUrl}/delete/${id}`);
   }
   Pmsgupload(data: FormData): Observable<any> {
-    return this.http.post<any>(`${this.baseUrl}/uploadpmsg`, data);
+    return this.http.post<any>(`${this.apiUrl}/uploadpmsg`, data);
   }
   getpmsg(): Observable<any[]> {
-    return this.http.get<any[]>(`${this.baseUrl}/pmsget`);
+    return this.http.get<any[]>(`${this.apiUrl}/pmsget`);
   }
   deletepmsg(id: number): Observable<any> {
-    return this.http.delete<any>(`${this.baseUrl}/deletepmsg/${id}`);
-  }
-  uploadPDF(formData: FormData): Observable<any> {
-    return this.http.post(`${this.apiUrl}/uploadpdf`, formData);
-  }
-
-  fetchPDF(pdfId: number): Observable<Blob> {
-    return this.http.get(`${this.apiUrl}/fetch-pdf/${pdfId}`, { responseType: 'blob' });
+    return this.http.delete<any>(`${this.apiUrl}/deletepmsg/${id}`);
   }
 }
