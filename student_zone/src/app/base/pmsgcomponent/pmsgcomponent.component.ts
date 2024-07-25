@@ -1,16 +1,18 @@
 import { Component } from '@angular/core';
 import { UploadsService } from '../../service/uploads.service';
 import { RouterLink } from '@angular/router';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatListModule} from '@angular/material/list';
 
 @Component({
   selector: 'app-pmsgcomponent',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink,MatDividerModule],
   template: `
    <div class="msg-box">
-    <div class="msg">
+    <!-- <div class="msg">
       <h1>Principal Message</h1>
-    </div>
+    </div> -->
    <div class="message">
            @if (images.length > 0) { <div class="out">
               @for (image of images; track $index) {  <div class="in">
@@ -20,7 +22,8 @@ import { RouterLink } from '@angular/router';
                     <a routerLink="/pmsg">
                     <button class="btn btn-light">Read more</button></a>
                     </div>
-                </div>}
+                </div>
+              <mat-divider></mat-divider>}
             </div>}</div>
    </div>
   `,
@@ -36,11 +39,7 @@ import { RouterLink } from '@angular/router';
   }
   .message{
     padding:12px;
-  }
-  a{
-  display:flex;
-  text-decoration:none;
-  flex-direction: row-reverse;
+    width:20rem;
   }
   .out{
     display:flex;
@@ -58,23 +57,11 @@ import { RouterLink } from '@angular/router';
     display:flex;
     gap:12px;
     h3{
-      font-size:26px;
-      font-weight:700;
+      font-size:15px;
+      font-weight:500;
       color:rgb(30, 136, 30);
     };
   }
-  .msg{
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    border-radius: 6px 6px 0 0;
-    background-color:#575a5c;
-    h1{
-        font-size: 22px;
-        font-weight: 700;
-        color:#2298f2;
-    }
-}
   `
 })
 export class PmsgcomponentComponent {

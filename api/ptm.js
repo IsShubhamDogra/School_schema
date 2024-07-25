@@ -18,7 +18,7 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage });
 
-router.post('/pdfupload', upload.single('pdf'), (req, res) => {
+router.post('/ptmupload', upload.single('pdf'), (req, res) => {
   
     if (!req.file) {
       return res.status(400).send('No file uploaded.');
@@ -27,8 +27,7 @@ router.post('/pdfupload', upload.single('pdf'), (req, res) => {
     const filename = req.file.filename;
     const text = req.body.text || '';
   
-    // Insert metadata into the database
-    const query = 'INSERT INTO pdf_files (filename, text) VALUES (?, ?)';
+    const query = 'INSERT INTO ptm_files (filename, text) VALUES (?, ?)';
     db.query(query, [filename, text], (err, result) => {
       if (err) {
         console.error('Database error:', err);
@@ -38,9 +37,8 @@ router.post('/pdfupload', upload.single('pdf'), (req, res) => {
     });
   });
 
-
-router.get('/pdf', (req, res) => {
-    const query = 'SELECT id, filename,text FROM pdf_files';
+  router.get('/ptm', (req, res) => {
+    const query = 'SELECT id, filename,text FROM ptm_files';
     db.query(query, (err, results) => {
       if (err) {
         console.error('Database error:', err);
@@ -50,10 +48,10 @@ router.get('/pdf', (req, res) => {
     });
   });
   
-  // GET route for fetching PDF by ID
-  router.get('/pdf/:id', (req, res) => {
+  //get ptm schedule by id
+  router.get('/ptm/:id', (req, res) => {
     const id = req.params.id;
-    const query = 'SELECT filename FROM pdf_files WHERE id = ?';
+    const query = 'SELECT filename FROM ptm_files WHERE id = ?';
     db.query(query, [id], (err, results) => {
       if (err || results.length === 0) {
         console.error('Database error:', err);
@@ -65,10 +63,10 @@ router.get('/pdf', (req, res) => {
     });
   });
   // delete pdf
-  router.delete('/deletepdf/:id', (req, res) => {
+  router.delete('/deleteptm/:id', (req, res) => {
     const id = req.params.id;
   
-    const sql = 'DELETE FROM pdf_files WHERE id = ?';
+    const sql = 'DELETE FROM ptm_files WHERE id = ?';
     db.query(sql, [id], (err, result) => {
       if (err) {
         console.error('Error deleting data:', err);
@@ -79,4 +77,5 @@ router.get('/pdf', (req, res) => {
   });
   
 
-module.exports = router;
+
+  module.exports = router;

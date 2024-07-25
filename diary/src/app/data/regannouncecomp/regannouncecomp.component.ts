@@ -1,16 +1,20 @@
 import { Component } from '@angular/core';
-import { UploadsService } from '../../service/uploads.service';
-import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { PdfService } from '../../service/pdf.service';
 import { CommonModule } from '@angular/common';
-import {  MatFormFieldModule} from '@angular/material/form-field';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatListModule} from '@angular/material/list';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
+
 
 @Component({
   selector: 'app-regannouncecomp',
   standalone: true,
-  imports: [ReactiveFormsModule,CommonModule,MatFormFieldModule,MatDividerModule,MatListModule],
+  imports: [ReactiveFormsModule,CommonModule,MatFormFieldModule,MatDividerModule,MatListModule,
+    MatDatepickerModule,MatInputModule
+  ],
   templateUrl: './regannouncecomp.component.html',
   styleUrl: './regannouncecomp.component.css'
 })
@@ -23,7 +27,7 @@ export class RegannouncecompComponent {
 
   constructor(private fb: FormBuilder, private pdfService: PdfService) {
     this.activepdf = this.fb.group({
-      text: ['']
+      text: [''],
     });
   }
 

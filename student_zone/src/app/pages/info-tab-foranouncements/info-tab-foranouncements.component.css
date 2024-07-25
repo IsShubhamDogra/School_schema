@@ -1,0 +1,20 @@
+.new{
+    width: 40px;
+    rotate: 45deg;
+}
+a{
+    text-decoration: none;
+    color: black;
+    font-size: 14px;
+    font-weight: 400;
+}
+a:hover{
+    color: rgb(11, 77, 169);
+}
+.list {
+    display: grid;
+    padding: 16px;
+}
+.pdf{
+    width:20px;
+}

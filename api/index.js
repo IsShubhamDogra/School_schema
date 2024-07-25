@@ -4,7 +4,8 @@ const cors = require('cors');
 const { port } = require('./db');
 const carousel = require('./carousel');
 const message = require('./message');
-const pdfs = require('./pdf')
+const pdfs = require('./pdf');
+const ptm = require('./ptm');
 const authserver = require('./authserver');
 const bodyParser = require('body-parser');
 
@@ -21,7 +22,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/', carousel);
 app.use('/',message);
 app.use('/',authserver);
-app.use('/',pdfs)
+app.use('/',pdfs),
+app.use('/',ptm)
 
 // Serve static files from the carousel directory
 app.use('/carousel', express.static(path.join(__dirname, 'carousel')));

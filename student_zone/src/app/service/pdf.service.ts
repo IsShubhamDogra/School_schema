@@ -18,5 +18,14 @@ export class PdfService {
   getAllPdfs(): Observable<any[]> {
     return this.http.get<any[]>(`${this.apiUrl}/pdf`);
   }
+  //ptm service call
+
+  getPtmUrl(id: number): string {
+    return `${this.apiUrl}/ptm/${id}`;
+  }
+
+  getAllptmPdfs(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/ptm`);
+  }
 
 }

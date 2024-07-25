@@ -1,22 +1,32 @@
 <div class="container">
-    <form [formGroup]="ptmform" (ngSubmit)="onSubmit()">
+    <form [formGroup]="ptmform" (ngSubmit)="onSubmit($event)">
         <div class="fields">
-            <mat-form-field>
-                <mat-label>Choose a date</mat-label>
-                <input matInput [matDatepicker]="picker" formControlName="date">
-                <mat-hint>MM/DD/YYYY</mat-hint>
-                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-                <mat-datepicker #picker></mat-datepicker>
-            </mat-form-field>
+            <div class="input-group mb-3">
+                <input type="file" (change)="onFileSelected($event)" accept="application/pdf"  class="form-control"
+                  id="inputGroupFile02" required>
+              </div>
             <mat-form-field class="example-full-width">
-                <mat-label>Title</mat-label>
-                <input matInput placeholder="Enter Reason" formControlName="title">
-            </mat-form-field>
-            <mat-form-field class="example-full-width">
-                <mat-label>Message</mat-label>
-                <textarea matInput placeholder="Information about PTM........" formControlName="msg"></textarea>
+                <mat-label>Comment</mat-label>
+                <textarea matInput placeholder="Information about PTM........" formControlName="text"></textarea>
               </mat-form-field>
         </div>
         <button class="btn btn-primary" type="submit">Submit</button>
     </form>
 </div>
+
+<div class="output">
+    <h1>List of PDFs</h1>
+    <mat-list>
+      @for (ptmpdf of ptmpdfs; track $index){
+        <div class="pdfcount">
+          <mat-list-item><a [href]="getPtmUrl(ptmpdf.id)" target="_blank">{{ ptmpdf.text
+          }}</a></mat-list-item>
+          <div>
+            <button class="btn btn-danger" (click)="ptmDlt(ptmpdf.id)">Delete</button>
+          </div>
+          <mat-divider></mat-divider>
+        </div>
+          <mat-divider></mat-divider>
+        }
+    </mat-list>
+  </div>
