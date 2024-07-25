@@ -5,11 +5,10 @@
       <input type="file" (change)="onFileSelected($event)" accept="application/pdf" class="form-control"
         id="inputGroupFile02" required>
     </div>
-    <div class="form-floating">
-      <textarea class="form-control" formControlName="text" placeholder="Leave a comment here"
-        id="floatingTextarea"></textarea>
-      <label for="floatingTextarea">Comments</label>
-    </div>
+    <mat-form-field class="example-full-width">
+      <mat-label>Comment</mat-label>
+      <textarea matInput placeholder="announcement info........" formControlName="text"></textarea>
+  </mat-form-field>
     <button class="btn btn-primary" type="submit">Upload PDF</button>
   </form>
   <mat-divider></mat-divider>

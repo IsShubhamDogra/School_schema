@@ -3,23 +3,21 @@
         <mat-list class="list">
             @for (pdf of pdfs; track $index){
             <mat-list-item><img class="pdf" src="/assets/pdf.png"> <a [href]="getPdfUrl(pdf.id)" target="_blank">
-                {{pdf.text}}
-            </a> <img class="new" src="/assets/new.gif"></mat-list-item>
+                    {{pdf.text}}
+                </a> <img class="new" src="/assets/new.gif"></mat-list-item>
             <mat-divider></mat-divider>
             }
         </mat-list>
     </mat-tab>
-    <mat-tab label="Notice Board"> 
-        <marquee class="mrq" behavior="active" direction="up" scrollamount="3">
+    <mat-tab label="Notice Board">
         <mat-list class="list">
             @for (ptmpdf of ptmpdfs; track $index){
             <mat-list-item><img class="pdf" src="/assets/pdf.png"> <a [href]="getPtmUrl(ptmpdf.id)" target="_blank">
-                {{ptmpdf.text}}
-            </a> <img class="new" src="/assets/new.gif"></mat-list-item>
+                    {{ptmpdf.text}}
+                </a> <img class="new" src="/assets/new.gif"></mat-list-item>
             <mat-divider></mat-divider>
             }
         </mat-list>
-    </marquee>
-         </mat-tab>
+    </mat-tab>
     <mat-tab label="Academic Events"> Content 3 </mat-tab>
 </mat-tab-group>

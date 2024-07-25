@@ -1,32 +1,33 @@
 <div class="container">
+    <h1>PTM PDF Upload</h1>
     <form [formGroup]="ptmform" (ngSubmit)="onSubmit($event)">
         <div class="fields">
             <div class="input-group mb-3">
-                <input type="file" (change)="onFileSelected($event)" accept="application/pdf"  class="form-control"
-                  id="inputGroupFile02" required>
-              </div>
+                <input type="file" (change)="onFileSelected($event)" accept="application/pdf" class="form-control"
+                    id="inputGroupFile02" required>
+            </div>
             <mat-form-field class="example-full-width">
                 <mat-label>Comment</mat-label>
                 <textarea matInput placeholder="Information about PTM........" formControlName="text"></textarea>
-              </mat-form-field>
+            </mat-form-field>
         </div>
-        <button class="btn btn-primary" type="submit">Submit</button>
+        <button class="btn btn-primary" type="submit">upload pdf</button>
     </form>
+    <mat-divider></mat-divider>
+    <div class="output">
+        <h1>List Of PTM PDFs</h1>
+        <mat-list>
+            @for (ptmpdf of ptmpdfs; track $index){
+            <div class="pdfcount">
+                <mat-list-item><a [href]="getPtmUrl(ptmpdf.id)" target="_blank">{{ ptmpdf.text
+                        }}</a></mat-list-item>
+                <div>
+                    <button class="btn btn-danger" (click)="ptmDlt(ptmpdf.id)">Delete</button>
+                </div>
+                <mat-divider></mat-divider>
+            </div>
+            <mat-divider></mat-divider>
+            }
+        </mat-list>
+    </div>
 </div>
-
-<div class="output">
-    <h1>List of PDFs</h1>
-    <mat-list>
-      @for (ptmpdf of ptmpdfs; track $index){
-        <div class="pdfcount">
-          <mat-list-item><a [href]="getPtmUrl(ptmpdf.id)" target="_blank">{{ ptmpdf.text
-          }}</a></mat-list-item>
-          <div>
-            <button class="btn btn-danger" (click)="ptmDlt(ptmpdf.id)">Delete</button>
-          </div>
-          <mat-divider></mat-divider>
-        </div>
-          <mat-divider></mat-divider>
-        }
-    </mat-list>
-  </div>

@@ -1,0 +1,19 @@
+<form [formGroup]="galleryform" (ngSubmit)="OnSubmit()">
+    <div class="input-group mb-3">
+        <input type="file" class="form-control" id="inputGroupFile02" (change)="onFileChange($event)">
+    </div>
+    <button class="btn btn-primary">update gallery</button>
+</form>
+
+@if (images.length > 0) {<div class="imgflx">
+    @for (image of images; track $index) {
+        <div>
+            <div>
+                <div>
+                <img [src]="image.image" />
+            </div>
+                <!-- <button class="btn btn-danger col-3" (click)="deletecarousel(image.id)"><i class="bi bi-trash"></i></button> -->
+        </div>
+        </div>
+       }
+</div>}

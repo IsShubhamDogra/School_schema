@@ -17,6 +17,7 @@ import { CarouselComponent } from './data/carousel/carousel.component';
 import { PNsgComponent } from './data/p-nsg/p-nsg.component';
 import { PtmComponent } from './data/ptm/ptm.component';
 import { RegannouncecompComponent } from './data/regannouncecomp/regannouncecomp.component';
+import { InstitutegalleryComponent } from './data/institutegallery/institutegallery.component';
 
 export const routes: Routes = [
     {path:'',component:InformationComponent},
@@ -35,5 +36,6 @@ export const routes: Routes = [
     {path:'carousel',component:CarouselComponent},
     {path:'pmsg',component:PNsgComponent},
     {path:'ptm',component:PtmComponent},
-    {path:'regannounce',component:RegannouncecompComponent}
+    {path:'regannounce',component:RegannouncecompComponent},
+    {path:'gallery',component:InstitutegalleryComponent}
 ];

@@ -7,11 +7,14 @@ import { CommonModule } from '@angular/common';
 import { DemonvComponent } from '../../navigaton/demonv/demonv.component';
 import { PmsgcomponentComponent } from '../pmsgcomponent/pmsgcomponent.component';
 import { InfoTabForanouncementsComponent } from '../../pages/info-tab-foranouncements/info-tab-foranouncements.component';
+import { GalleryComponent } from '../../pages/gallery/gallery.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [RouterLink,MatIconModule,CommonModule,DemonvComponent,PmsgcomponentComponent,InfoTabForanouncementsComponent],
+  imports: [RouterLink,MatIconModule,CommonModule,DemonvComponent,
+    PmsgcomponentComponent,InfoTabForanouncementsComponent,
+  GalleryComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })

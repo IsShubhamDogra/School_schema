@@ -38,6 +38,9 @@ a{
 #c,#d{
     background-color: rgb(232, 246, 162);
 }
+#f{
+    background-color: rgb(255, 163, 163);
+}
 .box{
     display: flex;
     flex-direction: column;
@@ -46,7 +49,7 @@ a{
 .s-image{
     align-self: center;
     width: 80px;
-    opacity: 60%;
+    opacity: 70%;
 }
 h1{
     font-size: 25px;
