@@ -1,4 +1,3 @@
-<!-- <app-demonv></app-demonv> -->
 <img id="school_image" src="assets/school.jpg" alt="">
 <div class="container1">
     <div class="nav">
@@ -66,45 +65,52 @@
     </div>
     <div class="mrq">
         <label>Activities <i class="bi bi-megaphone"></i></label>
-        <marquee behavior="scrolling" direction="left"><span class="marrq">THIS Is a Demo Marquee</span></marquee>
+        <marquee behavior="scrolling" direction="left"><span class="marrq">
+                @for (pdf of pdfs; track $index){<a [href]="getPdfUrl(pdf.id)" target="_blank">
+                    <img class="new" src="/assets/new.gif"> <img class="pdf" src="/assets/pdf.png"> {{pdf.text}}
+                </a>
+                }
+            </span></marquee>
     </div>
     <div class="container wrap">
         <div class="slider-cors-div">
             <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
-                  <div *ngFor="let image of images1; let i = index" [class.active]="i === 0" class="carousel-item">
-                    <img class="cors" [src]="image.image" alt="Image">
-                  </div>
+                    <div *ngFor="let image of images1; let i = index" [class.active]="i === 0" class="carousel-item">
+                        <img class="cors" [src]="image.image" alt="Image">
+                    </div>
                 </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Previous</span>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
                 </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Next</span>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExample"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
                 </button>
-              </div>
-        </div>     
+            </div>
+        </div>
         <div class="message-box">
             <div class="msg">
                 <h1>Director Message</h1>
             </div>
-        <div class="message">
-           @if (images.length > 0) { <div>
-              @for (image of images; track $index) {  <div>
-                    <img [src]="image.image" alt="{{ image.name }}" width="300">
-                    <h3>{{ image.name }}</h3>
-                    <p>{{ image.message }}</p>
+            <div class="message">
+                @if (images.length > 0) { <div>
+                    @for (image of images; track $index) { <div>
+                        <img [src]="image.image" alt="{{ image.name }}" width="300">
+                        <h3>{{ image.name }}</h3>
+                        <p>{{ image.message }}</p>
+                    </div>}
+                    <a routerLink="/dmsg">
+                        <button class="btn btn-light">Read more</button></a>
                 </div>}
-                <a routerLink="/dmsg">
-                <button class="btn btn-light">Read more</button></a>
-            </div>}
-            <div *ngIf="images.length === 0">
-                <p>No images found.</p>
-            </div> 
+                <div *ngIf="images.length === 0">
+                    <p>No images found.</p>
+                </div>
+            </div>
         </div>
-    </div>
     </div>
     <div class="container">
         <div class="op">

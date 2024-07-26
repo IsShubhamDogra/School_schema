@@ -40,10 +40,12 @@
                             </div>
                         </a>
                     </div>
-                    <div class="subscribe-section">
-                        <input type="email" placeholder="Enter your email" class="subscribe-input">
-                        <button class="subscribe-button">Subscribe</button>
-                    </div>
+                    <form [formGroup]="subscribeform" (ngSubmit)="onSubmit()">
+                        <div class="subscribe-section">
+                            <input type="email" placeholder="Enter your email" class="subscribe-input" formControlName="email">
+                            <button class="subscribe-button" type="submit">Subscribe</button>
+                        </div>
+                    </form>
                     <div class="footer-links">
                         <a href="#">About Us</a>
                         <a href="#">Contact</a>

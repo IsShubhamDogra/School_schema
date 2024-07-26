@@ -186,15 +186,30 @@
         border-width: 2px;
         padding: 5px;
         border-radius: 6px;
-        height: 10rem;
+        height: 14rem;
     }
 
     .op1 {
-        border-style: dashed;
-        border-width: 2px;
-        border-color: #ff6600;
+        box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
         border-radius: 6px;
         height:13rem;
         width: fit-content;
     };
+}
+.new{
+    width: 40px;
+    rotate: 45deg;
+}
+a{
+    text-decoration: none;
+    color: rgb(4, 27, 178);
+    font-size: 14px;
+    font-weight: 400;
+    margin-right: 22px;
+}
+a:hover{
+    color: rgb(11, 77, 169);
+}
+.pdf{
+    width:20px;
 }

@@ -8,6 +8,7 @@ import { DemonvComponent } from '../../navigaton/demonv/demonv.component';
 import { PmsgcomponentComponent } from '../pmsgcomponent/pmsgcomponent.component';
 import { InfoTabForanouncementsComponent } from '../../pages/info-tab-foranouncements/info-tab-foranouncements.component';
 import { GalleryComponent } from '../../pages/gallery/gallery.component';
+import { PdfService } from '../../service/pdf.service';
 
 @Component({
   selector: 'app-home',
@@ -19,12 +20,14 @@ import { GalleryComponent } from '../../pages/gallery/gallery.component';
   styleUrl: './home.component.css'
 })
 export class HomeComponent implements OnInit {
+  pdfs:any[] = [];
   images:any[]=[];
   images1:any[]=[];
-  constructor(private message:UploadsService){}
+  constructor(private message:UploadsService,private pdfService:PdfService){}
   ngOnInit(): void {
     this.fetchImages();
     this.loadImage();
+    this.loadAllPdfs();
   }
 
   fetchImages() {
@@ -42,5 +45,18 @@ export class HomeComponent implements OnInit {
       // Handle error as needed
     });
   }
+
+  //Anouncements call from DB through API
+  //pdf call
+  loadAllPdfs() {
+    this.pdfService.getAllPdfs().subscribe(pdfs => {
+      this.pdfs = pdfs;
+    }, error => {
+      console.error('Error fetching PDFs:', error);
+    });
+}
+getPdfUrl(id: number): string {
+  return this.pdfService.getPdfUrl(id);
+}
 
 }
