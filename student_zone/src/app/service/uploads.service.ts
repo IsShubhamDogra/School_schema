@@ -18,4 +18,7 @@ export class UploadsService {
   pmsg(): Observable<any[]> {
     return this.http.get<any[]>(`${this.apiUrl}/pmsget`);
   }
+  getGalleryImages(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/galleryimg`);
+  }
 }

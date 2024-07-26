@@ -14,6 +14,11 @@ a:hover{
 .list {
     display: grid;
     padding: 16px;
+    overflow-y:scroll;
+    height: 8rem;
+}
+.list::-webkit-scrollbar {
+    display: none;
 }
 .pdf{
     width:20px;

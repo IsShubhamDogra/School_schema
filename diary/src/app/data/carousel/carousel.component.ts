@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { UploadsService } from '../../service/uploads.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-carousel',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule,CommonModule],
   templateUrl: './carousel.component.html',
   styleUrl: './carousel.component.css'
 })
@@ -38,6 +39,7 @@ OnSubmit() {
       console.error('Error uploading image:', error);
     }
   );
+  window.location.reload();
 }
 ngOnInit(): void {
   this.fetchImages();

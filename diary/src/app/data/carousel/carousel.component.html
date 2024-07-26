@@ -4,7 +4,31 @@
     </div>
     <button class="btn btn-primary">Post</button>
 </form>
-@if (images.length > 0) {<div class="row">
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">S.no.</th>
+            <th scope="col">Image</th>
+            <th scope="col">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let image of images; let i = index">
+            <td>{{ i + 1 }}</td>
+            <td><img [src]="image.image" alt="Image" class="img-thumbnail" /></td>
+            <td>
+                <button class="btn btn-danger col-3" (click)="deletecarousel(image.id)">
+                    <i class="bi bi-trash"></i>
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<div *ngIf="images.length === 0">
+      <p>No images found.</p>
+    </div>
+
+<!-- @if (images.length > 0) {<div class="row">
     @for (image of images; track $index) {
         <div class="col-3">
             <div class="box">
@@ -15,4 +39,4 @@
         </div>
         </div>
        }
-</div>}
+</div>} -->

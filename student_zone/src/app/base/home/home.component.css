@@ -183,12 +183,10 @@
     justify-content: space-between;
 
     .op {
-        border-style: dashed;
         border-width: 2px;
-        width: 20rem;
-        border-color: #ff6600;
         padding: 5px;
         border-radius: 6px;
+        height: 10rem;
     }
 
     .op1 {
@@ -196,8 +194,7 @@
         border-width: 2px;
         border-color: #ff6600;
         border-radius: 6px;
+        height:13rem;
         width: fit-content;
-    }
-
-    ;
+    };
 }

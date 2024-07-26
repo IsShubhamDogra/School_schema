@@ -41,6 +41,7 @@ export class PNsgComponent {
         console.log(response);
       });
     }
+    window.location.reload();
   }
   // fetching data
   ngOnInit(): void {

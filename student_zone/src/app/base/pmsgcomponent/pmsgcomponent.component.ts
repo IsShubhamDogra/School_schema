@@ -10,9 +10,6 @@ import {MatListModule} from '@angular/material/list';
   imports: [RouterLink,MatDividerModule],
   template: `
    <div class="msg-box">
-    <!-- <div class="msg">
-      <h1>Principal Message</h1>
-    </div> -->
    <div class="message">
            @if (images.length > 0) { <div class="out">
               @for (image of images; track $index) {  <div class="in">

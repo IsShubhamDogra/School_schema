@@ -54,6 +54,19 @@ router.get('/galleryimg', (req, res) => {
       res.json(images);
     });
   });
+
+  router.delete('/deleteimg/:id', (req, res) => {
+    const id = req.params.id;
+  
+    const sql = 'DELETE FROM gallery_photo WHERE id = ?';
+    db.query(sql, [id], (err, result) => {
+      if (err) {
+        console.error('Error deleting data:', err);
+        return res.status(500).json({ error: 'Error deleting data' });
+      }
+      res.json({ message: 'Image deleted successfully' });
+    });
+  });
   
 
 module.exports = router;

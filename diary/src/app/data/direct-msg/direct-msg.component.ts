@@ -41,6 +41,7 @@ export class DirectMsgComponent {
         console.log(response);
       });
     }
+    window.location.reload();
   }
   // fetching data
   ngOnInit(): void {

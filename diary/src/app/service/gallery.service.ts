@@ -17,4 +17,7 @@ export class GalleryService {
 getImages(): Observable<any[]> {
   return this.http.get<any[]>(`${this.apiUrl}/galleryimg`);
 }
+deletephoto(id: number): Observable<any> {
+  return this.http.delete<any>(`${this.apiUrl}/deleteimg/${id}`);
+}
 }

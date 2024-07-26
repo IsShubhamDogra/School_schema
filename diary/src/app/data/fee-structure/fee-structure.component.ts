@@ -41,5 +41,6 @@ export class FeeStructureComponent {
     this.feeservice.uploadfee(formData).subscribe(response => {
       console.log(response);
     });
+    window.location.reload();
   }
 }

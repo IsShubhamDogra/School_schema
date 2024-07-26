@@ -1,1 +1,6 @@
-
+    <span>Gallery</span>
+    <div class="box">
+        <div *ngFor="let image of images; let i = index" class="carousel">
+            <img class="carousel-item " [src]="image.image" alt="Image" class="img-thumbnail" />
+         </div>         
+    </div>

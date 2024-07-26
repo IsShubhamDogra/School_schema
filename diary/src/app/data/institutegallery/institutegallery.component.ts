@@ -2,11 +2,13 @@ import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { UploadsService } from '../../service/uploads.service';
 import { GalleryService } from '../../service/gallery.service';
+import { CommonModule } from '@angular/common';
+import {MatIconModule} from '@angular/material/icon'
 
 @Component({
   selector: 'app-institutegallery',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule,CommonModule,MatIconModule],
   templateUrl: './institutegallery.component.html',
   styleUrl: './institutegallery.component.css'
 })
@@ -40,6 +42,7 @@ OnSubmit() {
       console.error('Error uploading image:', error);
     }
   );
+  window.location.reload();
 }
 ngOnInit(): void {
   this.fetchImages();
@@ -52,16 +55,16 @@ fetchImages() {
   });
 }
 
-// deletecarousel(id: number) {
-//   if (confirm('Are you sure you want to delete this image?')) {
-//     this.upload.deletephoto(id).subscribe(response => {
-//       console.log('Image deleted:', response);
-//       // Optionally, update the image list after deletion
-//       this.fetchImages();
-//     }, error => {
-//       console.error('Error deleting image:', error);
-//     });
-//   }
-// }
+deleteGallery(id: number) {
+  if (confirm('Are you sure you want to delete this image?')) {
+    this.upload.deletephoto(id).subscribe(response => {
+      console.log('Image deleted:', response);
+      // Optionally, update the image list after deletion
+      this.fetchImages();
+    }, error => {
+      console.error('Error deleting image:', error);
+    });
+  }
+}
 }
 
