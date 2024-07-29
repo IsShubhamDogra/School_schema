@@ -1,7 +1,6 @@
 const express = require('express');
 const multer = require('multer');
 const path = require('path');
-const fs = require('fs');
 const router = express.Router();
 const { db } = require('./db'); 
 
@@ -28,7 +27,7 @@ router.post('/ptmupload', upload.single('pdf'), (req, res) => {
     const text = req.body.text || '';
   
     const query = 'INSERT INTO ptm_files (filename, text) VALUES (?, ?)';
-    db.query(query, [filename, text], (err, result) => {
+    db.query(query, [filename, text,], (err, result) => {
       if (err) {
         console.error('Database error:', err);
         return res.status(500).send('Error saving file metadata.');

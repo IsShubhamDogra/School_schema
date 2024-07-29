@@ -1,10 +1,14 @@
 <div class="container">
     <form [formGroup]="feeForm" (ngSubmit)="onSubmit()">
+        <div class="mb-3">
+            <h1>Session</h1>
+            <input type="text" class="form-control" placeholder="" formControlName="session"
+                aria-describedby="basic-addon1">
+        </div>
         <div class="selections">
             <div class="form-data">
                 <h1>Select Class</h1>
-                <select formControlName="class" class="form-select" aria-label="Default select example"
-                    (change)="selectClass($event)">
+                <select formControlName="classes" class="form-select" aria-label="Default select example">
                     <option value="" selected>Select class.....</option>
                     <option value="1">One</option>
                     <option value="2">Two</option>
@@ -20,7 +24,7 @@
                     <option value="12">Twelve</option>
                 </select>
             </div>
-            <div *ngIf="feeForm.get('class')?.value === '11' || feeForm.get('class')?.value === '12'">
+            <div *ngIf="feeForm.get('classes')?.value === '11' || feeForm.get('classes')?.value === '12'">
                 <div class="form-data">
                     <h1>Select Stream</h1>
                     <select formControlName="stream" class="form-select" aria-label="Select Stream">
@@ -28,6 +32,7 @@
                         <option value="Science_2">Non-Medical with Computer Science</option>
                         <option value="Science_3">Medical with Physical Education</option>
                         <option value="Science_4">Medical with computer science</option>
+                        <option value="Science_5">Both Medical And Non-Medical</option>
                         <option value="Commerce_1">Commerce with Maths</option>
                         <option value="Commerce_2">Commerce without Maths</option>
                         <option value="Arts_1">Arts with Maths</option>

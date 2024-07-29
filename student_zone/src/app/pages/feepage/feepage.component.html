@@ -1,0 +1,69 @@
+<h1>Session: {{ feeDetails[0]?.session }}</h1>
+<form [formGroup]="feeForm" (ngSubmit)="onSubmit()">
+    <div class="form-data">
+        <h1 class="stream">select class</h1>
+        <select class="form-select" aria-label="Default select example" formControlName="selectedClass">
+            <option value="">Select Class</option>
+            <option value="1">First</option>
+            <option value="2">Second</option>
+            <option value="3">Third</option>
+            <option value="4">Fourth</option>
+            <option value="5">Fifth</option>
+            <option value="6">Sixth</option>
+            <option value="7">Seventh</option>
+            <option value="8">Eighth</option>
+            <option value="9">Ninth</option>
+            <option value="10">Tenth</option>
+            <option value="11">Eleventh</option>
+            <option value="12">Twelfth</option>
+        </select>
+    </div>
+    <div *ngIf="feeForm.get('selectedClass')?.value === '11' || feeForm.get('selectedClass')?.value === '12'">
+
+        <h1 class="stream">Select Stream</h1>
+        <select formControlName="stream" class="form-select" aria-label="Select Stream">
+            <option value="Science_1">Non-Medical with Physical Education</option>
+            <option value="Science_2">Non-Medical with Computer Science</option>
+            <option value="Science_3">Medical with Physical Education</option>
+            <option value="Science_4">Medical with computer science</option>
+            <option value="Science_5">Both Medical And Non-Medical</option>
+            <option value="Commerce_1">Commerce with Maths</option>
+            <option value="Commerce_2">Commerce without Maths</option>
+            <option value="Arts_1">Arts with Maths</option>
+            <option value="Arts_2">Arts with Psycology</option>
+            <option value="Arts_3">Arts with philosophy</option>
+        </select>
+    </div>
+    <button class="btn btn-primary">GET</button>
+</form>
+
+<div class="output" *ngIf="feeDetails.length > 0">
+    <h3>Fee Details</h3>
+    <h2>This Structure Show Anual Fee Charges Including All Additional Charges!</h2>
+    <table lass="vertical-table">
+        <thead>
+            <tr>
+                <th>Detail</th>
+                <th>Value</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let fee of feeDetails">
+                <td><span class="a">Stream</span></td>
+                <td>{{ fee.stream }}</td>
+            </tr>
+            <tr *ngFor="let fee of feeDetails">
+                <td><span class="a">Academic Fee</span></td>
+                <td><span>INR.</span> {{ fee.fee }}</td>
+            </tr>
+            <tr *ngFor="let fee of feeDetails">
+                <td><span class="a">Uniform Fee</span></td>
+                <td><span>INR.</span> {{ fee.uniform }}</td>
+            </tr>
+            <tr *ngFor="let fee of feeDetails">
+                <td><span class="a">Anual Tour Fee</span></td>
+                <td><span>INR.</span> {{ fee.tour }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

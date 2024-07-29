@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { FeeService } from '../../service/fee.service';
 
 @Component({
@@ -12,35 +12,24 @@ import { FeeService } from '../../service/fee.service';
 })
 export class FeeStructureComponent {
   feeForm!: FormGroup;
-  constructor(private fb: FormBuilder,private feeservice:FeeService) {
+  constructor(private fb: FormBuilder, private feeservice: FeeService) {
     this.feeForm = this.fb.group({
-      class: [''],
+      session: ['', Validators.required],
+      classes: ['', Validators.required],
       stream: [''],
-      fee: [''],
-      uniform: [''],
-      tour: ['']
+      fee: ['', Validators.required],
+      uniform: ['', Validators.required],
+      tour: ['', Validators.required]
     });
   }
-  selectClass(event: Event) {
-    const selectedClass = (event.target as HTMLSelectElement).value;
-    if (selectedClass === '11' || selectedClass === '12') {
-      this.feeForm.addControl('stream', new FormControl(''));
-    } else {
-      this.feeForm.removeControl('stream');
+  onSubmit() {
+    if (this.feeForm.valid) {
+      console.log('FormData:', this.feeForm.value);
+
+      this.feeservice.uploadfee(this.feeForm.value).subscribe( response => {
+          console.log(response);
+        });
     }
   }
 
-  onSubmit() {
-    console.log(this.feeForm.value);
-    const formData = new FormData();
-    formData.append('class', this.feeForm.get('class')?.value);
-    formData.append('stream', this.feeForm.get('stream')?.value);
-    formData.append('fee', this.feeForm.get('fee')?.value);
-    formData.append('uniform', this.feeForm.get('uniform')?.value);
-    formData.append('tour', this.feeForm.get('tour')?.value);
-    this.feeservice.uploadfee(formData).subscribe(response => {
-      console.log(response);
-    });
-    window.location.reload();
-  }
 }

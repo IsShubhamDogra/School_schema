@@ -4,13 +4,24 @@ form{
     gap: 12px;
 }
 h1{
-    font-weight: 800;
+    font-size: 17px;
+    font-weight: 600;
+    background-color: #0251b8;
+    color: white;
+    width: fit-content;
+    border-style: dashed;
+    border-color: white;
+    padding: 5px;
+    border-radius: 11px;
 }
 span{
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 900;
 }
 .mb-3{
     margin-bottom: 0% !important;
 }
-
+.selections{
+    display: grid;
+    gap: 1rem;
+}

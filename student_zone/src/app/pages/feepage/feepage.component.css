@@ -1,0 +1,84 @@
+/* fee.component.css */
+form{
+    display: grid;
+    gap: 2rem;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  h1{
+    background-color: #018a14;
+    color: rgb(255, 255, 255);
+    font-size: 22px;
+    width: fit-content;
+    border-radius: 11px;
+    padding: 9px;
+    border-style: dashed;
+    border-color: white;
+    font-weight: 700;
+  }
+  h3{
+    color: rgb(255, 153, 0);
+    font-size: 18px;
+    font-weight: 500;
+  }
+  
+  th {
+    padding: 10px;
+    font-size: 18px;
+    text-align: left;
+    border: 1px solid #ddd;
+  }
+  span{
+    color: red;
+  }
+  td{
+    color: rgb(0, 102, 255);
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+  }
+  
+  thead th {
+    background-color: #f2f2f2;
+  }
+  
+  tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  tbody td:first-child {
+    font-weight: bold;
+  }
+  .vertical-table th {
+    white-space: nowrap;
+  }
+  
+  .vertical-table td {
+    transform: rotate(-90deg);
+    transform-origin: left bottom;
+    white-space: nowrap;
+    text-align: right;
+  }
+  .stream{
+    color: rgb(252, 252, 252);
+    padding: 5px;
+    font-size: 16px;
+    font-weight: 500;
+    width: fit-content;
+    border-radius: 11px;
+    border-style: dashed;
+    border-color: white;
+    background-color: #013c8a;
+  }
+  .a{
+    color:  #0b5402;
+  }
+  .output{
+    margin-top: 2rem;
+  }
+  h2{
+    font-size: 14px;
+    color: #ff0303;
+  }
