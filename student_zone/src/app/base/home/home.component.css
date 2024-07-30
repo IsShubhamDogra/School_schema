@@ -73,7 +73,6 @@
     gap: 14px;
     border-radius: 6px;
     width: 20rem;
-    height: 30rem;
 
     .message {
         width: 300px;
@@ -175,8 +174,7 @@
 .bi {
     rotate: -30deg;
 }
-
-.container {
+.threefealds{
     display: flex;
     width: 100%;
     margin-top: 3rem;
@@ -196,6 +194,9 @@
         width: fit-content;
     };
 }
+.flow{
+    display: grid;
+}
 .new{
     width: 40px;
     rotate: 45deg;
@@ -213,3 +214,54 @@ a:hover{
 .pdf{
     width:20px;
 }
+.school_msg{
+    display: flex;
+    justify-content: space-evenly;
+    background: linear-gradient(to right, #283048, #859398);
+    position: relative;
+    padding: 20px;
+    margin: 30px;
+    border-radius: 10px;
+}
+.school_msg::before {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    right: -3px;
+    bottom: -3px;
+    border-radius: 10px;
+    z-index: -1;
+    background: conic-gradient(from 0deg, red, yellow, green, cyan, blue, magenta, red);
+    background-size: 250% 250%;
+    animation: rotateColors 4s linear infinite;
+  }
+
+  @keyframes rotateColors {
+    0% {
+        background-position: 0% 50%;
+      }
+      25% {
+        background-position: 50% 0%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      75% {
+        background-position: 50% 100%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+  }
+  .query{ 
+    width: 400px;
+  }
+  @media (max-width:1203px){
+    .school_msg{
+        display: grid;
+        width: fit-content;
+        margin: auto;
+        align-items: center;
+    }
+  }

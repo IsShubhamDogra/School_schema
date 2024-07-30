@@ -21,4 +21,8 @@ export class UploadsService {
   getGalleryImages(): Observable<any[]> {
     return this.http.get<any[]>(`${this.apiUrl}/galleryimg`);
   }
+
+  getSchoolMessage(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/s_msg`);
+  }
 }

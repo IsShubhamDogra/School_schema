@@ -1,0 +1,38 @@
+<form [formGroup]="uploadForm" (ngSubmit)="onSubmit()">
+    <div class="form-fields">
+        <div class="input-group mb-3">
+            <span class="input-group-text">Title</span>
+            <input type="text" class="form-control" placeholder="Title" aria-label="title"
+                aria-describedby="basic-addon1" formControlName="title">
+        </div>
+        <div class="input-group">
+            <textarea class="form-control" aria-label="With textarea" formControlName="message"></textarea>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-success">Submit</button>
+</form>
+
+
+<h1>Output</h1>
+
+<table *ngIf="msgs.length > 0" class="table">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Message</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let msg of msgs; let i = index">
+            <td id="title">{{ msg.title }}</td>
+            <td>{{ msg.message }}</td>
+            <td>
+                <button class="btn btn-danger" (click)="deleteMessage(msg.id)">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<div *ngIf="msgs.length === 0">
+    <p>No images found.</p>
+</div>

@@ -29,6 +29,20 @@ router.post('/subscribe', (req, res) => {
     });
 });
 
+router.post('/query',(req,res)=>{
+    const email = req.body.email;
+    const subject = req.body.subject;
+    const query = req.body.query;
+    const sql = 'INSERT INTO query_table (email, subject, query) VALUES (?, ?, ?)';
+    db.query(sql, [email, subject, query], (err, results) => {
+      if (err) {
+        console.error('Error inserting data:', err);
+        return res.status(500).json({ error: 'Error inserting data' });
+      }
+      res.json({ message: 'Query uploaded successfully', id: results.insertId });
+    });
+})
+
 
   module.exports = router;
   

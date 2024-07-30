@@ -1,0 +1,6 @@
+@if (msgs.length > 0) { <div>
+    @for (msg of msgs; track $index) {  <div class="message-box">
+          <h3>{{ msg.title }}</h3>
+          <p class="director-message">{{ msg.message }}</p>
+      </div>}
+  </div>}

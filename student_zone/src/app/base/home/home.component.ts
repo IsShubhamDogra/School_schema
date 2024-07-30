@@ -9,13 +9,16 @@ import { PmsgcomponentComponent } from '../pmsgcomponent/pmsgcomponent.component
 import { InfoTabForanouncementsComponent } from '../../pages/info-tab-foranouncements/info-tab-foranouncements.component';
 import { GalleryComponent } from '../../pages/gallery/gallery.component';
 import { PdfService } from '../../service/pdf.service';
+import { SchoolMessageComponent } from '../../pages/school-message/school-message.component';
+import { QueryComponent } from '../../pages/query/query.component';
+import {MatDividerModule} from '@angular/material/divider';
 
 @Component({
   selector: 'app-home',
   standalone: true,
   imports: [RouterLink,MatIconModule,CommonModule,DemonvComponent,
-    PmsgcomponentComponent,InfoTabForanouncementsComponent,
-  GalleryComponent],
+    PmsgcomponentComponent,InfoTabForanouncementsComponent,SchoolMessageComponent,
+  GalleryComponent,QueryComponent,MatDividerModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })

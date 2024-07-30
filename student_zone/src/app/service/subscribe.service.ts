@@ -14,4 +14,8 @@ export class SubscribeService {
     return this.http.post<any>(`${this.apiUrl}/subscribe`, data);
   }
 
+  QueryUpload(data:FormData):Observable<any>{
+    return this.http.post<any>(`${this.apiUrl}/query`,data)
+  }
+
 }

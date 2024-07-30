@@ -37,4 +37,17 @@ export class UploadsService {
   deletepmsg(id: number): Observable<any> {
     return this.http.delete<any>(`${this.apiUrl}/deletepmsg/${id}`);
   }
+  //school message 
+
+  schoolMessage(data:FormData): Observable<any>{
+    return this.http.post<any>(`${this.apiUrl}/school_m`,data);
+  }
+
+  getSmsg(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/s_msg`);
+  }
+
+  deleteSMsg(id: number): Observable<any> {
+    return this.http.delete<any>(`${this.apiUrl}/deleteSmsg/${id}`);
+  }
 }

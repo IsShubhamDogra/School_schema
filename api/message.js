@@ -69,8 +69,21 @@ router.post('/upload', (req, res) => {
       res.json(images);
     });
   });
+  router.delete('/delete/:id', (req, res) => {
+    const id = req.params.id;
   
-  // Route for uploading principal messages
+    const sql = 'DELETE FROM uploads WHERE id = ?';
+    db.query(sql, [id], (err, result) => {
+      if (err) {
+        console.error('Error deleting data:', err);
+        return res.status(500).json({ error: 'Error deleting data' });
+      }
+      res.json({ message: 'Image deleted successfully' });
+    });
+  });
+  
+  
+  // principal messages
   router.post('/uploadpmsg', (req, res) => {
     upload.single('image')(req, res, function (err) {
       if (err instanceof multer.MulterError) {
@@ -98,7 +111,6 @@ router.post('/upload', (req, res) => {
     });
   });
   
-  // Fetch principal messages
   router.get('/pmsget', (req, res) => {
     const sql = 'SELECT id, name, message, image FROM pmsg';
     db.query(sql, (err, results) => {
@@ -116,21 +128,6 @@ router.post('/upload', (req, res) => {
     });
   });
   
-  // Delete an image
-  router.delete('/delete/:id', (req, res) => {
-    const id = req.params.id;
-  
-    const sql = 'DELETE FROM uploads WHERE id = ?';
-    db.query(sql, [id], (err, result) => {
-      if (err) {
-        console.error('Error deleting data:', err);
-        return res.status(500).json({ error: 'Error deleting data' });
-      }
-      res.json({ message: 'Image deleted successfully' });
-    });
-  });
-  
-  // Delete a principal message
   router.delete('/deletepmsg/:id', (req, res) => {
     const id = req.params.id;
   
@@ -143,5 +140,52 @@ router.post('/upload', (req, res) => {
       res.json({ message: 'Image deleted successfully' });
     });
   });
+
+  //school message
+
+
+router.post('/school_m', (req, res) => {
+  const { title,message } = req.body;
+
+  const sql = 'INSERT INTO school_msg (title, message) VALUES (?, ?)';
+  db.query(sql, [title,message], (err, result) => {
+    if (err) {
+      console.error('Database error:', err);
+      return res.status(500).json({ error: 'Error uploading School Message' });
+    }
+    res.json({ message: 'School Message saved successfully' });
+  });
+});
+
+router.get('/s_msg', (req, res) => {
+  const sql = 'SELECT id, title, message FROM school_msg';
+  db.query(sql, (err, results) => {
+    if (err) {
+      console.error('Error fetching data:', err);
+      return res.status(500).json({ error: 'Error fetching data' });
+    }
+    const msg = results.map(row => ({
+      id: row.id,
+      title: row.title,
+      message: row.message
+    }));
+    res.json(msg);
+  });
+});
+
+router.delete('/deleteSmsg/:id', (req, res) => {
+  const id = req.params.id;
+
+  const sql = 'DELETE FROM school_msg WHERE id = ?';
+  db.query(sql, [id], (err, result) => {
+    if (err) {
+      console.error('Error deleting data:', err);
+      return res.status(500).json({ error: 'Error deleting data' });
+    }
+    res.json({ message: 'Message deleted successfully' });
+  });
+});
+
+
   
   module.exports = router;
