@@ -14,11 +14,13 @@ import {MatListModule} from '@angular/material/list';
 export class InfoTabForanouncementsComponent implements OnInit {
   pdfs:any[] = [];
   ptmpdfs:any[] = [];
+  acdmicpdfs:any[] = [];
   constructor(private pdfService:PdfService){}
 
   ngOnInit(): void {
     this.loadAllPdfs();
     this.loadAllptmPdfs();
+    this.loadAllacademicpdf();
   }
   //pdf call
   loadAllPdfs() {
@@ -42,5 +44,18 @@ loadAllptmPdfs() {
 }
 getPtmUrl(id: number): string {
 return this.pdfService.getPtmUrl(id);
+}
+
+//academic call
+
+loadAllacademicpdf() {
+  this.pdfService.getAllacademicPdfs().subscribe(acdmicpdfs => {
+    this.acdmicpdfs = acdmicpdfs;
+  }, error => {
+    console.error('Error fetching PDFs:', error);
+  });
+}
+getacademicUrl(id: number): string {
+return this.pdfService.getacademicUrl(id);
 }
 }

@@ -1,0 +1,31 @@
+<div class="container">
+    <h1>Upload Academic PDF</h1>
+    <form [formGroup]="academicpdf" (submit)="academicPDF($event)">
+      <div class="input-group mb-3">
+        <input type="file" (change)="onFileSelected($event)" accept="application/pdf" class="form-control"
+          id="inputGroupFile02" required>
+      </div>
+      <mat-form-field class="example-full-width">
+        <mat-label>Comment</mat-label>
+        <textarea matInput placeholder="announcement info........" formControlName="text"></textarea>
+    </mat-form-field>
+      <button class="btn btn-primary" type="submit">Upload PDF</button>
+    </form>
+    <mat-divider></mat-divider>
+    <div class="output">
+      <h1>List of Academic PDFs</h1>
+      <mat-list>
+        @for (pdf of pdfs; track $index){
+          <div class="pdfcount">
+            <mat-list-item><a [href]="getacademicUrl(pdf.id)" target="_blank">{{ pdf.text
+            }}</a></mat-list-item>
+            <div>
+              <button class="btn btn-danger" (click)="deleteacademicpdf(pdf.id)">Delete</button>
+            </div>
+            <mat-divider></mat-divider>
+          </div>
+            <mat-divider></mat-divider>
+          }
+      </mat-list>
+    </div>
+  </div>

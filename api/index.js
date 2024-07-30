@@ -7,6 +7,7 @@ const message = require('./message');
 const pdfs = require('./pdf');
 const ptm = require('./ptm');
 const fee = require('./fee');
+const academic = require('./academic');
 const subscribe = require('./subscribe')
 const gallery = require('./gallery');
 const authserver = require('./authserver');
@@ -29,7 +30,8 @@ app.use('/',pdfs),
 app.use('/',ptm),
 app.use('/',gallery),
 app.use('/',subscribe),
-app.use('/',fee)
+app.use('/',fee),
+app.use('/',academic)
 
 // Serve static files from the carousel directory
 app.use('/carousel', express.static(path.join(__dirname, 'carousel')));

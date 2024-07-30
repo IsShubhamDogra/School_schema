@@ -1,3 +1,4 @@
+
 const express = require('express');
 const multer = require('multer');
 const path = require('path');
@@ -17,7 +18,8 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage });
 
-router.post('/ptmupload', upload.single('pdf'), (req, res) => {
+
+router.post('/academicevent', upload.single('pdf'), (req, res) => {
   
     if (!req.file) {
       return res.status(400).send('No file uploaded.');
@@ -26,7 +28,7 @@ router.post('/ptmupload', upload.single('pdf'), (req, res) => {
     const filename = req.file.filename;
     const text = req.body.text || '';
   
-    const query = 'INSERT INTO ptm_files (filename, text) VALUES (?, ?)';
+    const query = 'INSERT INTO academic_files (filename, text) VALUES (?, ?)';
     db.query(query, [filename, text,], (err, result) => {
       if (err) {
         console.error('Database error:', err);
@@ -36,8 +38,8 @@ router.post('/ptmupload', upload.single('pdf'), (req, res) => {
     });
   });
 
-  router.get('/ptm', (req, res) => {
-    const query = 'SELECT id, filename,text FROM ptm_files';
+  router.get('/acdmic', (req, res) => {
+    const query = 'SELECT id, filename,text FROM academic_files';
     db.query(query, (err, results) => {
       if (err) {
         console.error('Database error:', err);
@@ -48,9 +50,9 @@ router.post('/ptmupload', upload.single('pdf'), (req, res) => {
   });
   
   //get ptm schedule by id
-  router.get('/ptm/:id', (req, res) => {
+  router.get('/acdmic/:id', (req, res) => {
     const id = req.params.id;
-    const query = 'SELECT filename FROM ptm_files WHERE id = ?';
+    const query = 'SELECT filename FROM academic_files WHERE id = ?';
     db.query(query, [id], (err, results) => {
       if (err || results.length === 0) {
         console.error('Database error:', err);
@@ -62,10 +64,10 @@ router.post('/ptmupload', upload.single('pdf'), (req, res) => {
     });
   });
   // delete pdf
-  router.delete('/deleteptm/:id', (req, res) => {
+  router.delete('/deleteacdmic/:id', (req, res) => {
     const id = req.params.id;
   
-    const sql = 'DELETE FROM ptm_files WHERE id = ?';
+    const sql = 'DELETE FROM academic_files WHERE id = ?';
     db.query(sql, [id], (err, result) => {
       if (err) {
         console.error('Error deleting data:', err);
@@ -74,7 +76,7 @@ router.post('/ptmupload', upload.single('pdf'), (req, res) => {
       res.json({ message: 'pdf deleted successfully' });
     });
   });
-
+  
 
 
   module.exports = router;

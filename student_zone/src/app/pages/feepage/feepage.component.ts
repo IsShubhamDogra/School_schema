@@ -24,14 +24,6 @@ export class FeepageComponent implements OnInit {
     });
   }
 
-  onClassChange(): void {
-    const selectedClass = this.feeForm.get('selectedClass')?.value;
-    if (selectedClass === '11' || selectedClass === '12') {
-    } else {
-      this.fetchFeeDetails(selectedClass, '');
-    }
-  }
-
   fetchFeeDetails(selectedClass: string, selectedStream: string): void {
     this.feeservice.getFeeDetails(selectedClass, selectedStream).subscribe(data => {
       this.feeDetails = data;

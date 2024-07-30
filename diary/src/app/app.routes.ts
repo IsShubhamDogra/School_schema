@@ -18,6 +18,8 @@ import { PNsgComponent } from './data/p-nsg/p-nsg.component';
 import { PtmComponent } from './data/ptm/ptm.component';
 import { RegannouncecompComponent } from './data/regannouncecomp/regannouncecomp.component';
 import { InstitutegalleryComponent } from './data/institutegallery/institutegallery.component';
+import { AcademicSetComponent } from './admin/academic-set/academic-set.component';
+import { AcademicEventsComponent } from './data/academic-events/academic-events.component';
 
 export const routes: Routes = [
     {path:'',component:InformationComponent},
@@ -37,5 +39,7 @@ export const routes: Routes = [
     {path:'pmsg',component:PNsgComponent},
     {path:'ptm',component:PtmComponent},
     {path:'regannounce',component:RegannouncecompComponent},
-    {path:'gallery',component:InstitutegalleryComponent}
+    {path:'gallery',component:InstitutegalleryComponent},
+    {path:'a_set',component:AcademicSetComponent},
+    {path:'a_events',component:AcademicEventsComponent}
 ];

@@ -55,4 +55,29 @@ export class PdfService {
   deleteptmpdf(id: number): Observable<any> {
     return this.http.delete<any>(`${this.apiUrl}/deleteptm/${id}`);
   }
+
+
+  //academic pdf urd
+  uploadacademicPdf(file: File, text: string): Observable<any> {
+    const formData: FormData = new FormData();
+    formData.append('pdf', file, file.name);
+    formData.append('text', text);
+    return this.http.post(`${this.apiUrl}/academicevent`, formData, {
+      headers: new HttpHeaders({
+        'Accept': 'application/json'
+      })
+    });
+  }
+
+  getacademicUrl(id: number): string {
+    return `${this.apiUrl}/acdmic/${id}`;
+  }
+
+  getAllacademicPdfs(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/acdmic`);
+  }
+  deleteacademicpdf(id: number): Observable<any> {
+    return this.http.delete<any>(`${this.apiUrl}/deleteacdmic/${id}`);
+  }
+
 }

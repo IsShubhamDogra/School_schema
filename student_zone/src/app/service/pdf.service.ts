@@ -28,4 +28,13 @@ export class PdfService {
     return this.http.get<any[]>(`${this.apiUrl}/ptm`);
   }
 
+  //academic pdfs
+
+  getacademicUrl(id: number): string {
+    return `${this.apiUrl}/acdmic/${id}`;
+  }
+
+  getAllacademicPdfs(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/acdmic`);
+  }
 }
