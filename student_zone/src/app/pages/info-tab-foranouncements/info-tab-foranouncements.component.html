@@ -7,6 +7,9 @@
                 </a> <img class="new" src="/assets/new.gif"></mat-list-item>
             <mat-divider></mat-divider>
             }
+            @if(pdfs.length === 0){
+                <p>No pfd Found</p>
+            }
         </mat-list>
     </mat-tab>
     <mat-tab label="Notice Board">
@@ -17,6 +20,9 @@
                 </a> <img class="new" src="/assets/new.gif"></mat-list-item>
             <mat-divider></mat-divider>
             }
+            @if(ptmpdfs.length === 0){
+                <p>No pfd Found</p>
+            }
         </mat-list>
     </mat-tab>
     <mat-tab label="Academic Events">
@@ -26,6 +32,9 @@
                 {{acdmicpdf.text}}
             </a> <img class="new" src="/assets/new.gif"></mat-list-item>
         <mat-divider></mat-divider>
+        }
+        @if(acdmicpdfs.length === 0){
+            <p>No pfd Found</p>
         }
     </mat-list></mat-tab>
 </mat-tab-group>

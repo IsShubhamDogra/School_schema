@@ -70,7 +70,11 @@
                     <img class="new" src="/assets/new.gif"> <img class="pdf" src="/assets/pdf.png"> {{pdf.text}}
                 </a>
                 }
-            </span></marquee>
+            </span>
+        @if(pdfs.length === 0){
+            <p>No Notification Available</p>
+        }   
+        </marquee>
     </div>
     <div class="container wrap">
         <div class="slider-cors-div">
